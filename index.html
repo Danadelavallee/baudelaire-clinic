@@ -1,0 +1,1084 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   Baudelaire Skin Clinic
+  </title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link as="image" href="images/jaw.jpg" rel="preload"/>
+<link as="image" href="images/lip.jpg" rel="preload"/>
+<link as="image" href="images/eyelid.jpg" rel="preload"/>
+<link as="image" href="images/nose.jpg" rel="preload"/>
+<link as="image" href="images/cheek.jpg" rel="preload"/>
+<link rel="stylesheet" href="styles.css">
+<!-- Add more based on your image set -->
+<style>
+   html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f8fa;
+      color: #333;
+      padding-top: 80px; /* Offset for fixed header */
+    }
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed; /* Make header fixed */
+      top: 0;
+      width: 100%;
+      z-index: 1100; /* Ensure it stays above other content */
+    }
+    .logo {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #00B4D8;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      position: relative; /* Ensure dropdown aligns relative to the nav item */
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #48A9C5;
+      font-weight: 700;
+      font-size: 1.2em;
+      transition: color 0.3s ease;
+    }
+    
+    nav ul li a:hover {
+      color: #007F7D;
+    }
+    .cta-button {
+      background-color: #48A9C5;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #009dc2;
+    }
+    .mega-menu {
+      position: absolute; /* Instead of fixed */
+      top: 100%;
+      left: 0;
+      background: #fff;
+      padding: 30px 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      display: none; /* Hidden by default */
+      z-index: 1000;
+      width: max-content; /* Adjusts to content width */
+      min-width: 900px; /* Ensures a minimum width for the menu */
+    }
+    nav ul li:hover .mega-menu,
+    .mega-menu:hover {
+      display: flex;
+    }
+    .mega-column {
+      display: flex;
+      flex-direction: column;
+      max-width: 250px;
+      padding-right: 40px;
+    }
+    .hover-panel {
+      max-width: 280px;
+      padding: 20px;
+      background: #f9fafa;
+      border-left: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+      border-radius: 12px;
+    }
+    .mega-column h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #007ea7;
+      margin-bottom: 14px;
+      border-left: 4px solid #007ea7;
+      padding-left: 10px;
+    }
+    .mega-column ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mega-column ul li {
+      font-size: 14.5px;
+      color: #444;
+      white-space: normal; /* Wrap text properly */
+      word-break: break-word;
+      padding: 6px 0;
+      transition: all 0.3s ease;
+      border-left: 2px solid transparent;
+      padding-left: 10px;
+    }
+    .mega-column ul li:hover {
+      color: #007ea7;
+      border-left: 2px solid #007ea7;
+      background: #f4fafd;
+      border-radius: 4px;
+    }
+    .hover-panel img {
+      border-radius: 12px;
+      width: 100%;
+      height: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      margin-bottom: 12px;
+    }
+    .hover-panel p {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .hero {
+      background: url('images/Skin-Care-Web-Banner.png') no-repeat center center;
+      background-size: cover;
+      padding: 0 40px;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 60%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      max-width: 540px;
+      padding: 24px 28px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(18px);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 2.7em;
+      font-weight: 800;
+      color: #007ea7;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .hero-content p {
+      font-size: 1.05em;
+      color: #444;
+      line-height: 1.7;
+      font-weight: 400;
+      margin-bottom: 28px;
+    }
+
+    .hero-content .cta-button {
+      background-color: #48A9C5;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 1em;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: background 0.3s ease;
+    }
+
+    .hero-content .cta-button:hover {
+      background-color: #009dc2;
+    }
+
+    .services {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 0 40px;
+      background-color: #fff;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: none;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      width: 320px;
+      min-height: 250px;
+      height: 250px;
+      flex: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      background-color: #f0faff;
+    }
+
+    .service-card h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #00B4D8;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .service-card p {
+      font-size: 1.2em;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .service-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+
+    .service-card ul li {
+      margin-bottom: 12px;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .service-card ul li:before {
+      content: '\2022';
+      color: #00B4D8;
+      position: absolute;
+      left: 0;
+      font-size: 1.2em;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    .additional-info {
+      padding: 40px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .additional-info ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .additional-info ul li {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .treatment-section {
+      padding: 40px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .treatment-section h2 {
+      margin-bottom: 10px;
+    }
+
+    .treatment-section p {
+      margin-bottom: 20px;
+    }
+
+    .treatment-options {
+      display: flex;
+      align-items: center; /* Vertically align both columns */
+      justify-content: center; /* Center the columns horizontally */
+      gap: 130px; /* Add spacing between the columns */
+      margin: 0 auto; /* Center the container horizontally */
+      max-width: 960px; /* Limit the width for a balanced layout */
+      padding: 40px 0; /* Add vertical padding for breathing room */
+    }
+
+    .treatment-list {
+      flex: 1; /* Ensure equal flex growth */
+      max-width: 48%; /* Limit the width to balance the columns */
+    }
+
+    .preview-card.image-preview {
+      flex: 1;
+      max-width: 48%; /* Balance the width with the treatment list */
+      display: flex;
+      flex-direction: column; /* Stack the image and text vertically */
+      align-items: flex-start; /* Bring the image + text block closer to the list */
+    }
+
+    .preview-card.image-preview img {
+      width: 100%; /* Ensure the image scales responsively */
+      max-width: 320px; /* Limit the maximum width */
+      height: auto; /* Maintain aspect ratio */
+      object-fit: cover; /* Crop if necessary while maintaining aspect ratio */
+      border-radius: 12px; /* Keep the rounded corners */
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Add a soft shadow for depth */
+      margin-bottom: 16px; /* Add spacing below the image */
+    }
+
+    .preview-text {
+      font-size: 16px; /* Refined font size for readability */
+      color: #4a6073; /* Muted tone for elegance */
+      text-align: left; /* Align text to the left */
+      max-width: 320px; /* Limit the width for better layout */
+      background: #f9fafa; /* Subtle background for contrast */
+      padding: 14px; /* Add padding for spacing */
+      border-radius: 10px; /* Rounded corners for a polished look */
+    }
+
+    @media (max-width: 768px) {
+      .treatment-options {
+        flex-direction: column; /* Stack the columns vertically */
+        gap: 20px; /* Add spacing between stacked elements */
+      }
+
+      .treatment-list,
+      .preview-card.image-preview {
+        max-width: 100%; /* Full width for stacked layout */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .preview-card.image-preview img {
+        max-width: 100%; /* Ensure images scale properly */
+        height: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mega-menu {
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        gap: 10px;
+      }
+
+      .mega-column {
+        flex: 1 1 100%; /* Stack columns vertically */
+        max-width: 100%;
+      }
+
+      .hover-panel {
+        flex: 1 1 100%; /* Move hover panel below columns */
+        max-width: 100%;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .treatment-options {
+        flex-direction: column; /* Stack the columns vertically */
+        align-items: center; /* Center-align the stacked content */
+      }
+
+      .treatment-list,
+      .preview-card.image-preview {
+        max-width: 100%; /* Allow full width for stacked layout */
+      }
+
+      .preview-card img {
+        width: 90%; /* Reduce image width for smaller screens */
+      }
+    }
+
+    .service-preview-container {
+      text-align: center;
+      margin: 60px auto; /* Adds spacing around the section */
+      padding: 0 20px; /* Adds padding for better responsiveness */
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif; /* Elegant serif font */
+      font-size: 36px; /* Larger font size for emphasis */
+      font-weight: bold;
+      color: #1d2b3a; /* Deep navy tone */
+      margin-bottom: 20px; /* Space below the title */
+      letter-spacing: 0.5px; /* Subtle letter-spacing for refinement */
+    }
+
+    .section-subtitle {
+      font-family: 'Lora', serif; /* High-end serif font */
+      font-size: 18px; /* Refined font size */
+      color: #555; /* Muted charcoal tone */
+      margin-bottom: 40px; /* Space below the subtitle */
+      letter-spacing: 0.3px;
+      line-height: 1.6; /* Improves readability */
+    }
+
+    /* Responsive styling for mobile screens */
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 28px; /* Adjust font size for smaller screens */
+      }
+
+      .section-subtitle {
+        font-size: 16px; /* Adjust font size for smaller screens */
+      }
+    }
+
+    .preview-card img {
+      width: 100%; /* Ensure the image scales responsively */
+      max-width: 320px; /* Limit the maximum width */
+      height: auto; /* Maintain aspect ratio */
+      object-fit: cover; /* Crop if necessary while maintaining aspect ratio */
+      border-radius: 12px; /* Keep the rounded corners */
+      margin-bottom: 16px; /* Add spacing below the image */
+    }
+
+    .treatment-list ul {
+      list-style: none; /* Remove bullet points */
+      text-align: left; /* Align text to the left */
+      margin: 0; /* Remove unnecessary centering */
+      padding: 0; /* Reset padding */
+    }
+
+    .treatment-list li {
+      padding: 12px 0; /* Add vertical spacing between items */
+      font-size: 18px; /* Set a readable font size */
+      color: #333; /* Default text color */
+      cursor: pointer; /* Indicate interactivity */
+      border-bottom: 1px solid #eee; /* Add a subtle divider between items */
+      transition: color 0.3s ease; /* Smooth color transition on hover */
+      text-align: left; /* Align text to the left */
+    }
+
+    .treatment-list li:hover {
+      color: #007ea7; /* Change text color on hover */
+      font-weight: bold; /* Emphasize the hovered item */
+    }
+
+    .treatment-list {
+      display: flex;
+      flex-direction: column; /* Stack the list items vertically */
+      justify-content: center; /* Center the list vertically */
+      align-items: flex-end; /* Pull the list closer to the image */
+    }
+
+    .service-preview {
+      display: flex;
+      justify-content: center; /* Center the entire preview container horizontally */
+    }
+
+    .preview-message {
+      font-size: 1.4rem; /* Large font size for emphasis */
+      color: #555; /* Neutral text color */
+      font-weight: 500; /* Medium weight for readability */
+      text-align: center; /* Center-align the text */
+      padding: 40px 0; /* Add vertical padding for spacing */
+    }
+  </style>
+</head>
+<body>
+<header>
+<div class="logo">
+    Baudelaire
+   </div>
+<nav>
+<ul>
+<li>
+<a href="#">
+       Treatments
+      </a>
+<div class="mega-menu">
+<div class="mega-column">
+<h4>
+         Anti-Wrinkle &amp; Sculpting
+        </h4>
+<ul>
+
+<li data-desc="Reduces excessive gum show." data-img="gummy.jpg">
+          Anti-Wrinkle Injections (3 Areas)
+         </li>
+<li data-desc="Flips the upper lip subtly." data-img="lip.jpg">
+          Anti-Wrinkle Injections (3 Areas + Eyelid/Brow Lift)
+         </li>
+<li data-desc="Lifts eyelids and brows." data-img="eyelid.jpg">
+          Eyelid Lift / Brow Lift
+         </li>
+<li data-desc="Reduces excessive gum show." data-img="gummy.jpg">
+          Gummy Smile
+         </li>
+<li data-desc="Smooths smoker's lines." data-img="smoker.jpg">
+          Smoker's Lines
+         </li>
+<li data-desc="Flips the upper lip subtly." data-img="lip.jpg">
+          Lip Flip
+         </li>
+<li data-desc="Lifts the nose tip." data-img="nose.jpg">
+          Nose Tip Lift
+         </li>
+<li data-desc="Smooths bunny lines." data-img="bunny.jpg">
+          Bunny Lines
+         </li>
+<li data-desc="Smooths dimpled chin." data-img="chin.jpg">
+          Dimpled Chin
+         </li>
+<li data-desc="Lifts downturned mouth." data-img="mouth.jpg">
+          Downturned Mouth
+         </li>
+<li data-desc="Sculpts and slims the jaw." data-img="jaw.jpg">
+          Jaw Slimming
+         </li>
+<li data-desc="Lifts and tightens neck." data-img="nefertiti.jpg">
+          Nefertiti Neck Lift
+         </li>
+<li data-desc="Treats underarm sweating." data-img="hyperhidrosis.jpg">
+          Hyperhidrosis (Underarm)
+         </li>
+</ul>
+</div>
+<div class="mega-column">
+<h4>
+         Fillers &amp; Boosters
+        </h4>
+<ul>
+<li data-desc="Enhances cheek volume." data-img="cheek.jpg">
+          Cheek Enhancement
+         </li>
+<li data-desc="Enhances chin profile." data-img="chin.jpg">
+          Chin Enhancement
+         </li>
+<li data-desc="Improves jawline definition." data-img="jawline.jpg">
+          Jawline Improvement
+         </li>
+<li data-desc="Enhances weak chin profile." data-img="profile.jpg">
+          Profile Enhancement (Weak Chin)
+         </li>
+<li data-desc="Smooths nasolabial lines." data-img="nasolabial.jpg">
+          Nasolabial Lines
+         </li>
+<li data-desc="Smooths marionette lines." data-img="marionette.jpg">
+          Marionette Lines
+         </li>
+<li data-desc="Volumises the lips naturally." data-img="lipfill.jpg">
+          Lip Enhancement / Top-Up
+         </li>
+<li data-desc="Reduces under-eye hollows." data-img="tear.jpg">
+          Tear Trough (Under Eyes)
+         </li>
+<li data-desc="Non-surgical facelift." data-img="facelift.jpg">
+          8-Point Facelift
+         </li>
+<li data-desc="Non-surgical nose reshaping." data-img="rhinoplasty.jpg">
+          Non-Surgical Rhinoplasty
+         </li>
+<li data-desc="Dissolves unwanted filler." data-img="dissolve.jpg">
+          Filler Dissolving
+         </li>
+<li data-desc="Hydrates and rejuvenates skin." data-img="profhilo.jpg">
+          Profhilo
+         </li>
+<li data-desc="Hydrates and rejuvenates skin." data-img="juvederm.jpg">
+          Juvederm Volite
+         </li>
+<li data-desc="Hydrates and rejuvenates skin." data-img="restylane.jpg">
+          Restylane
+         </li>
+<li data-desc="Hydrates and rejuvenates skin." data-img="teosyal.jpg">
+          Teosyal
+         </li>
+</ul>
+</div>
+<div class="mega-column">
+<h4>
+         Regenerative &amp; Skin Treatments
+        </h4>
+<ul>
+<li data-desc="Regenerates skin." data-img="polynucleotides.jpg">
+          Polynucleotides (Face / Eyes / Neck / Decolletage / Combos)
+         </li>
+<li data-desc="Stimulates collagen using PRP." data-img="prp.jpg">
+          PRP (Face / Scalp / Neck / Combos)
+         </li>
+<li data-desc="Combines PRP with microneedling." data-img="prp_skinpen.jpg">
+          PRP + Skinpen
+         </li>
+<li data-desc="Boosts glow and reduces scars." data-img="microneedle.jpg">
+          Skinpen Microneedling (Face, Face + Neck)
+         </li>
+<li data-desc="Gently resurfaces skin tone." data-img="peel.jpg">
+          Chemical Peels (Radiant 20/10 &amp; 30)
+         </li>
+</ul>
+</div>
+<div class="hover-panel">
+<img alt="Treatment Image" id="hoverImg" src="default.jpg"/>
+<div class="preview-text" id="preview-desc">
+<p>
+          Hover over a treatment to see details.
+         </p>
+</div>
+</div>
+</div>
+</li>
+<li class="has-mega">
+<a href="#">
+       Conditions
+      </a>
+
+<div class="mega-menu">
+<div class="mega-column">
+<h4>Loss of Definition &amp; Volume</h4>
+<ul>
+<li data-desc="Hollowing or volume loss in cheeks or under-eyes." data-img="volume-face.jpg">Facial hollowing or volume loss</li>
+<li data-desc="Weak chin or recessed lower face structure." data-img="chin.jpg">Weak or recessed chin</li>
+<li data-desc="Lack of jawline contour or sagging lower face." data-img="jaw.jpg">Undefined jawline or sagging</li>
+<li data-desc="Thinning lips or asymmetry in volume." data-img="lips.jpg">Lip volume loss or asymmetry</li>
+<li data-desc="Gummy or downturned smile aesthetics." data-img="smile.jpg">Gummy or downturned smile</li>
+<li data-desc="Bumps or profile issues with nose." data-img="nose.jpg">Nose profile irregularities</li>
+</ul>
+</div>
+<div class="mega-column">
+<h4>Loss of Radiance</h4>
+<ul>
+<li data-desc="Early signs of ageing or surface wrinkles." data-img="lines.jpg">Fine lines and early signs of ageing</li>
+<li data-desc="Uneven tone or lack of glow." data-img="tone.jpg">Dull or uneven skin tone</li>
+<li data-desc="Lack of moisture and skin crepiness." data-img="dehydrated.jpg">Dehydrated or crepey skin</li>
+<li data-desc="Darkness or shadowing around the eyes." data-img="undereyes.jpg">Under-eye darkness or hollowness</li>
+<li data-desc="Visible pores and uneven texture." data-img="pores.jpg">Texture issues, enlarged pores</li>
+<li data-desc="Pigmentation, sun spots, mild UV damage." data-img="sun.jpg">Mild pigmentation or sun damage</li>
+</ul>
+</div>
+<div class="mega-column">
+<h4>Restorative Aesthetics</h4>
+<ul>
+<li data-desc="Old or misplaced filler needing correction." data-img="correction.jpg">Overfilled or migrated dermal filler</li>
+<li data-desc="Skin laxity or deep structural wrinkles." data-img="laxity.jpg">Deep lines, sagging, or skin laxity</li>
+<li data-desc="Scarring from acne or trauma." data-img="scars.jpg">Acne or trauma scarring</li>
+<li data-desc="Signs of advanced ageing and skin damage." data-img="ageing.jpg">Advanced skin ageing</li>
+<li data-desc="Weak skin regeneration or poor healing." data-img="collagen.jpg">Collagen depletion or poor skin healing</li>
+<li data-desc="Thinning hair or scalp imbalance." data-img="hair.jpg">Hair thinning or scalp issues</li>
+</ul>
+</div>
+<div class="hover-panel">
+<img alt="Preview Image" id="hoverImgConditions" src="images/default.jpg"/>
+<div id="preview-desc-conditions">Hover over a condition to see details.</div>
+</div>
+</div>
+</li>
+<li>
+<a href="#">
+       About Us
+      </a>
+</li>
+<li>
+<a href="#">
+       Blog
+      </a>
+</li>
+<li>
+<a href="#">
+       Log in
+      </a>
+</li>
+</ul>
+</nav>
+<a class="cta-button" href="consultation.html">
+    Start consultation →
+   </a>
+</header>
+<nav>
+  <ul>
+    <li class="nav-item">
+      <a href="#">Menu Item</a>
+      <div class="dropdown">
+        <ul>
+          <li><a href="#">Submenu Item 1</a></li>
+          <li><a href="#">Submenu Item 2</a></li>
+          <li><a href="#">Submenu Item 3</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a href="#">Another Menu Item</a>
+    </li>
+  </ul>
+</nav>
+<section class="hero">
+<div class="hero-content">
+<h1>
+     Personalised Care. Natural Results.
+    </h1>
+<p>
+     Your journey to confident skin starts with a conversation — tailored treatments by medical experts who listen.
+    </p>
+<a class="cta-button" href="consultation.html">
+     Book Your Consultation →
+    </a>
+</div>
+</section>
+<section class="services">
+<div class="service-card" data-category="skin-texture">
+<h3>
+     Skin Texture &amp; Health
+    </h3>
+<p>
+     Targets roughness, dryness, pores, and scarring.
+    </p>
+</div>
+<div class="service-card" data-category="facial-balance">
+<h3>
+     Facial Balance
+    </h3>
+<p>
+     Refine proportions. Reveal natural symmetry.
+    </p>
+</div>
+<div class="service-card" data-category="aging-prevention">
+<h3>
+     Aging &amp; Prevention
+    </h3>
+<p>
+     Improve lines, volume loss, and skin laxity
+    </p>
+</div>
+</section>
+<section class="service-preview-container">
+<h2 class="section-title">
+    Discover Personalised Skin Treatments
+   </h2>
+<p class="section-subtitle">
+    Hover over each area to explore refined treatment approaches
+   </p>
+<!-- Skin Texture & Health -->
+<div class="service-preview" id="skin-texture-preview" style="display: none;">
+<div class="treatment-options">
+<div class="treatment-list">
+<ul>
+</ul>
+<!-- Dynamically populated by JS -->
+</div>
+<div class="preview-card image-preview">
+<div class="preview-message">
+       Hover over a treatment to learn more.
+      </div>
+<img alt="Preview" class="preview-image" src="" style="display: none;"/>
+<div class="preview-text" style="display: none;"></div>
+</div>
+</div>
+</div>
+<!-- Repeat for other categories (Facial Balance, Aging & Prevention) -->
+<!-- Facial Balance -->
+<div class="service-preview" id="facial-balance-preview" style="display: none;">
+<div class="treatment-options">
+<div class="treatment-list">
+<ul>
+</ul>
+</div>
+<div class="preview-card image-preview">
+<div class="preview-message">
+       Hover over a treatment to learn more.
+      </div>
+<img alt="Preview" class="preview-image" src="" style="display: none;"/>
+<div class="preview-text" style="display: none;"></div>
+</div>
+</div>
+</div>
+<!-- Aging & Prevention -->
+<div class="service-preview" id="aging-prevention-preview" style="display: none;">
+<div class="treatment-options">
+<div class="treatment-list">
+<ul>
+</ul>
+</div>
+<div class="preview-card image-preview">
+<div class="preview-message">
+       Hover over a treatment to learn more.
+      </div>
+<img alt="Preview" class="preview-image" src="" style="display: none;"/>
+<div class="preview-text" style="display: none;"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="services" style="margin-top: 80px;">
+<div class="service-card" data-category="refine-sculpt">
+<h3>
+     Refine &amp; Sculpt
+    </h3>
+<p>
+     Target expression lines and facial harmony.
+    </p>
+</div>
+<div class="service-card" data-category="revive-glow">
+<h3>
+     Revive &amp; Glow
+    </h3>
+<p>
+     Restore clarity, hydration, and glow.
+    </p>
+</div>
+<div class="service-card" data-category="renew-elevate">
+<h3>
+     Renew &amp; Elevate
+    </h3>
+<p>
+     Enhance structure and address complex aging.
+    </p>
+</div>
+</section>
+<section class="service-preview-container">
+<h2 class="section-title">
+    Explore Our Signature Pathways
+   </h2>
+<p class="section-subtitle">
+    Hover over a service card to reveal tailored treatment options.
+   </p>
+<div class="service-preview" id="refine-sculpt-preview" style="display: none;">
+<div class="treatment-options">
+<div class="treatment-list">
+<ul>
+</ul>
+</div>
+<div class="preview-card image-preview">
+<div class="preview-message">
+       Hover over a treatment to learn more.
+      </div>
+<img alt="Preview" class="preview-image" src="" style="display: none;"/>
+<div class="preview-text" style="display: none;"></div>
+</div>
+</div>
+</div>
+<div class="service-preview" id="revive-glow-preview" style="display: none;">
+<div class="treatment-options">
+<div class="treatment-list">
+<ul>
+</ul>
+</div>
+<div class="preview-card image-preview">
+<div class="preview-message">
+       Hover over a treatment to learn more.
+      </div>
+<img alt="Preview" class="preview-image" src="" style="display: none;"/>
+<div class="preview-text" style="display: none;"></div>
+</div>
+</div>
+</div>
+<div class="service-preview" id="renew-elevate-preview" style="display: none;">
+<div class="treatment-options">
+<div class="treatment-list">
+<ul>
+</ul>
+</div>
+<div class="preview-card image-preview">
+<div class="preview-message">
+       Hover over a treatment to learn more.
+      </div>
+<img alt="Preview" class="preview-image" src="" style="display: none;"/>
+<div class="preview-text" style="display: none;"></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="how-it-works-wrapper">
+  <div class="how-it-works-left">
+    <h2>How It Works</h2>
+    <p class="how-it-works-subtitle">A seamless journey, personalised every step of the way.</p>
+    <a href="consultation.html" class="cta-button">Start Consultation →</a>
+    <p class="price-note">First month <del>£24.99</del> £2.90</p>
+  </div>
+
+  <div class="how-it-works-right">
+    <div class="step-block">
+      <img src="C:/Users/Dana/Desktop/Windsurf WIX/GPT/images/Step 1.png" alt="Step 1 Icon" />
+      <div class="step-text">
+        <h4>STEP 01</h4>
+        <h3>Learn</h3>
+        <p>Explore our treatments, techniques, and philosophy. Our site is designed to inform and inspire you confidently.</p>
+      </div>
+    </div>
+    <div class="step-block">
+      <img src="C:/Users/Dana/Desktop/Windsurf WIX/GPT/images/Step 2.png" alt="Step 2 Icon" />
+      <div class="step-text">
+        <h4>STEP 02</h4>
+        <h3>Connect</h3>
+        <p>We'll call before your consultation to understand your goals. It's your time to ask, align, and feel supported.</p>
+      </div>
+    </div>
+    <div class="step-block">
+      <img src="C:/Users/Dana/Desktop/Windsurf WIX/GPT/images/Step 3.png" alt="Step 3 Icon" />
+      <div class="step-text">
+        <h4>STEP 03</h4>
+        <h3>Consultation Day</h3>
+        <p>You’ll receive a bespoke plan tailored to your needs. If it feels right, treatment can begin that day.</p>
+      </div>
+    </div>
+    <div class="step-block">
+      <img src="C:/Users/Dana/Desktop/Windsurf WIX/GPT/images/Step 4.png" alt="Step 4 Icon" />
+      <div class="step-text">
+        <h4>STEP 04</h4>
+        <h3>Refine</h3>
+        <p>We follow up to ensure everything settles beautifully. Our care continues — because radiance is a journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="data-to-detail-section">
+  <div class="data-wrapper">
+    <div class="data-text">
+      <h2>
+  From Data to Detail.<br />
+  <span class="subheading-break">Entirely Personal.</span>
+</h2>
+      <p>At Baudelaire, we don’t treat the surface; we understand the foundation. Through advanced diagnostics and facial mapping, we design your treatment from the inside out — grounded in your skin, your structure, your story.</p>
+    </div>
+    <div class="data-features">
+      <div class="feature-item">
+        <img src="images/Signature Facial Mapping.png" alt="Facial Mapping Icon" />
+        <p><strong>Signature Facial Mapping</strong></p>
+      </div>
+      <div class="feature-item">
+        <img src="images/Data-Driven Aesthetic Care.png" alt="Design Icon" />
+        <p><strong>Personalised Intervention, Data-Driven Aesthetic Care</strong></p>
+      </div>
+      <div class="feature-item">
+        <img src="images/Integrated Aesthetics.png" alt="Integrated Icon" />
+        <p><strong>Integrated Aesthetics: Dermatology, Formulation, and Artistry fusion</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="min-h-screen bg-white py-20 px-6 flex flex-col md:flex-row justify-center items-center gap-12">
+  <!-- Cards Column -->
+  <div class="flex flex-col gap-6 w-full md:w-1/2 max-w-xl">
+    
+    <!-- Card: Why I Created Baudelaire -->
+    <div class="group p-6 bg-gray-100 rounded-2xl shadow-md hover:bg-indigo-50 transition-all duration-300 cursor-pointer">
+      <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-600">Why I Created Baudelaire Clinics</h3>
+      <p class="text-gray-600 text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+        I founded Baudelaire Clinics out of a deep, personal need to unify fragmented skincare. People were being sent to different specialists with no one treating them as a whole. I kept thinking: why isn’t there one place where everything comes together—where science and beauty speak the same language?
+        <br><br>
+        Baudelaire Clinics is the answer—a space where cosmetic dermatology, evidence-based skincare, and aesthetic medicine merge into one philosophy: skin is more than surface. It’s biology, identity, and expression. We treat you, not trends.
+      </p>
+    </div>
+
+    <!-- Card: Who Am I? -->
+    <div class="group p-6 bg-gray-100 rounded-2xl shadow-md hover:bg-indigo-50 transition-all duration-300 cursor-pointer">
+      <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-600">Who Am I?</h3>
+      <p class="text-gray-600 text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+        I grew up in Nice, began in pharmacy, and pursued a PhD in photobiology at the University of Bath. After clinical dermatology training at the Royal College of Physicians of Ireland and advanced aesthetics in London, I brought it all together at Baudelaire Clinics.
+        <br><br>
+        This clinic reflects my vision—to treat skin not just clinically or cosmetically, but intelligently, personally, and beautifully.
+      </p>
+    </div>
+  </div>
+
+  <!-- Image Column -->
+  <div class="w-full md:w-1/2 flex justify-center">
+    <img src="images/bc68f1e5-a731-4e08-8d36-dc3926800990.png"
+         alt="Dr. Dana Beki"
+         class="w-72 h-72 rounded-3xl object-cover shadow-lg border border-gray-200">
+  </div>
+</section>
+
+<section class="additional-info">
+<h2>
+    Why Choose Us?
+   </h2>
+<p>
+    At Baudelaire Skin Clinic, we prioritize your skin's health and beauty through personalized care and advanced treatments.
+   </p>
+<ul>
+<li>
+     Expert medical professionals
+    </li>
+<li>
+     State-of-the-art technology
+    </li>
+<li>
+     Comprehensive skin assessments
+    </li>
+</ul>
+</section>
+<section class="content-section">
+<h2>
+    About Us
+   </h2>
+<p>
+    We offer a range of skincare treatments designed to help you achieve healthier, more radiant skin.
+   </p>
+</section>
+<footer>
+   © 2025 Baudelaire Skin Clinic. All rights reserved.
+  </footer>
+<script src="working_script_clean_final.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
