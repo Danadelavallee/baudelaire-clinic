@@ -1,3 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+ol,
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+table,
+td,
+tr {
+  border-collapse: collapse;
+}
+
+button {
+  cursor: pointer;
+}
+
+:root {
+  --theme: white;
+}
+
+.active {
+    opacity: 100%;
+    visibility: visible;
+    pointer-events: auto;
+    transition: all;
+    transition-duration: 0.4s;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f8fafd;
@@ -6,37 +46,165 @@ body {
   color: #1e1e1e;
 }
 
+/* header design start */
 header {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   padding: 20px 40px;
-  background-color: white;
-  border-bottom: 1px solid #eee;
-  font-size: 24px;
-  font-weight: bold;
-  color: #00a5b7;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
 }
+
+.logo a {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #00B4D8;
+}
+
+nav ul {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+nav ul {
+  position: relative;
+}
+
+nav ul li a,
+button {
+  color: #48A9C5;
+  font-weight: 700;
+  font-size: 1.2em;
+  background-color: transparent;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #007F7D;
+}
+
+nav ul li button:hover {
+  color: #007F7D;
+}
+
+.cta-button, .cta-button-inside {
+  background-color: #48A9C5;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.cta-button-inside {
+  display: none;
+}
+
+.cta-button:hover {
+  background-color: #009dc2;
+}
+
+
+.mega-menu {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 30px 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  z-index: 1000;
+  width: max-content;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all;
+  transition-duration: 0.4s;
+}
+
+
+nav ul li:hover .mega-menu,
+.mega-menu:hover {
+  opacity: 100%;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mega-column {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 250px;
+  max-height: 400px;
+  overflow: auto;
+  padding-right: 40px;
+}
+
+.mega-column ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2px;
+  width: 100%;
+}
+
+.mega-column ul li {
+  width: 100%;
+}
+
+.togglebar {
+  display: none;
+}
+
+/* header design end */
+
 
 /* Ensure parent container allows proper alignment */
 .services {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* Allow cards to stretch and center content properly */
+  align-items: stretch;
+  /* Allow cards to stretch and center content properly */
   gap: 20px;
 }
 
 /* Center-align content inside each service card */
 .service-card {
-  display: flex; /* Enable flexbox */
-  flex-direction: column; /* Stack title and subtitle vertically */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  text-align: center; /* Center-align text */
-  height: 250px; /* Ensure consistent height */
+  display: flex;
+  /* Enable flexbox */
+  flex-direction: column;
+  /* Stack title and subtitle vertically */
+  justify-content: center;
+  /* Center content vertically */
+  align-items: center;
+  /* Center content horizontally */
+  text-align: center;
+  /* Center-align text */
+  height: 250px;
+  /* Ensure consistent height */
   background-color: #f9f9f9;
   border-radius: 12px;
   padding: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s ease, background-color 0.3s ease;
-  flex: 1 1 calc(33.333% - 2rem); /* 3 per row */
+  flex: 1 1 calc(33.333% - 2rem);
+  /* 3 per row */
   min-width: 250px;
   max-width: 350px;
   background: white;
@@ -53,7 +221,8 @@ header {
 
 .service-card h3 {
   margin-top: 0;
-  margin-bottom: 0.5rem; /* Add spacing below the title */
+  margin-bottom: 0.5rem;
+  /* Add spacing below the title */
   color: #00B4D8;
   font-size: 1.5em;
   font-weight: bold;
@@ -62,7 +231,8 @@ header {
 .service-card p {
   font-size: 1.2em;
   line-height: 1.6;
-  margin: 0; /* Remove unnecessary margins */
+  margin: 0;
+  /* Remove unnecessary margins */
   font-weight: bold;
 }
 
@@ -175,13 +345,16 @@ header {
 
 .preview-card {
   flex: 1;
-  min-height: 320px; /* Lock the height to prevent layout shift */
-  height: 100%; /* Ensure consistent height */
+  min-height: 320px;
+  /* Lock the height to prevent layout shift */
+  height: 100%;
+  /* Ensure consistent height */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px; /* Add consistent padding */
+  padding: 20px;
+  /* Add consistent padding */
   background: #f9fafa;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -252,7 +425,8 @@ header {
 }
 
 .service-preview {
-  display: none; /* Hide all previews by default */
+  display: none;
+  /* Hide all previews by default */
   justify-content: center;
   align-items: flex-start;
   gap: 130px;
@@ -263,7 +437,8 @@ header {
 
 .treatment-options {
   flex: 1;
-  max-width: 45%; /* Limit width for better balance */
+  max-width: 45%;
+  /* Limit width for better balance */
 }
 
 .treatment-list ul {
@@ -289,7 +464,8 @@ header {
 
 .preview-card.image-preview {
   flex: 1;
-  max-width: 45%; /* Limit width for better balance */
+  max-width: 45%;
+  /* Limit width for better balance */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -322,75 +498,47 @@ header {
 
 /* Adjust spacing between treatment list and preview card */
 .treatment-options {
-  gap: 130px; /* Set horizontal spacing to 76px (2cm) */
+  gap: 130px;
+  /* Set horizontal spacing to 76px (2cm) */
 }
 
 /* Responsive styling for tablets and smaller screens */
 @media (max-width: 768px) {
   .service-preview {
-    flex-direction: column; /* Stack columns vertically */
-    gap: 30px; /* Add spacing between stacked elements */
+    flex-direction: column;
+    /* Stack columns vertically */
+    gap: 30px;
+    /* Add spacing between stacked elements */
     align-items: center;
   }
 
   .treatment-options,
   .preview-card.image-preview {
-    max-width: 100%; /* Full width for stacked layout */
+    max-width: 100%;
+    /* Full width for stacked layout */
   }
 
   .treatment-options {
-    gap: 20px; /* Maintain reduced spacing for smaller screens */
+    gap: 20px;
+    /* Maintain reduced spacing for smaller screens */
   }
 }
 
 @media (max-width: 480px) {
   .service-preview {
-    padding: 20px 10px; /* Reduce padding for smaller screens */
+    padding: 20px 10px;
+    /* Reduce padding for smaller screens */
   }
 
   .preview-card img {
-    width: 100%; /* Ensure images scale properly */
+    width: 100%;
+    /* Ensure images scale properly */
     height: auto;
   }
 }
 
 
 /* FINAL LOCKED Mega Menu Layout */
-.mega-menu {
-  position: absolute;
-  top: 100%; /* below the fixed header */
-  left: 0;
-  left: 50%; transform: translateX(-50%);
-  min-width: 1000px; height: auto; /* full screen minus header */
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  background: #fff;
-  padding: 40px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border-radius: 0;
-  z-index: 1000;
-  overflow: hidden;
-}
-
-.mega-menu {
-  height: 400px;
-  display: flex;
-  align-items: stretch; /* Ensures full height for children */
-}
-
-.mega-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* 🔒 Lock to parent height */
-  overflow: hidden; /* Prevent expansion */
-}
-
-.mega-column ul {
-  height: 100%; /* 🔒 Prevent pushing height */
-  overflow-y: auto; /* Add scroll if too many items */
-}
 
 .treatment-list {
   flex: 1;
@@ -474,46 +622,19 @@ header {
   border-top: 1px solid #e0e0e0;
 }
 
-nav ul li:hover .mega-menu,
-.mega-menu:hover {
-  display: flex;
-}
-
 .hover-panel img {
   width: 100%;
-  height: 160px; /* Explicit height */
-  max-height: 160px; /* Prevents overflow */
-  object-fit: cover; /* Ensures the image scales properly */
+  height: 160px;
+  /* Explicit height */
+  max-height: 160px;
+  /* Prevents overflow */
+  object-fit: cover;
+  /* Ensures the image scales properly */
   margin-bottom: 12px;
-  border-radius: 8px; /* Rounded corners */
-  transition: opacity 0.4s ease; /* Smooth transition for hover effects */
-}
-
-/* 🛠️ Center mega-menu under hovered nav item */
-nav ul li.has-mega {
-  position: relative; /* Anchor the dropdown to each nav item */
-}
-
-nav ul li.has-mega .mega-menu {
-  position: absolute;
-  top: 100%; /* Position the menu directly below the nav item */
-  left: 50%; /* Center the menu horizontally */
-  transform: translateX(-50%); /* Adjust for perfect centering */
-  display: none; /* Hide by default */
-  min-width: 1000px; /* Set a fixed width for the mega-menu */
-  padding: 40px; /* Add padding inside the menu */
-  background: white; /* Set background color */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Add a subtle shadow */
-  z-index: 1000; /* Ensure it appears above other elements */
-  border-radius: 0; /* Remove rounded corners */
-}
-
-/* 🛠️ Full-width mega-menu */
-
-
-/* Show on hover */
-nav ul li.has-mega:hover .mega-menu {
-  display: flex; /* Display the menu as a flex container */
+  border-radius: 8px;
+  /* Rounded corners */
+  transition: opacity 0.4s ease;
+  /* Smooth transition for hover effects */
 }
 
 .how-it-works-section {
@@ -706,13 +827,15 @@ nav ul li.has-mega:hover .mega-menu {
     margin-bottom: 12px;
   }
 }
+
 /* ======= END HOW IT WORKS ======= */
 
 .how-it-works-wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 60px;
-  align-items: center; /* Vertically center the left content */
+  align-items: center;
+  /* Vertically center the left content */
   padding: 100px 40px;
   background-color: #f0f8fa;
   max-width: 1200px;
@@ -723,7 +846,8 @@ nav ul li.has-mega:hover .mega-menu {
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
+  justify-content: center;
+  /* Center content vertically */
   gap: 16px;
 }
 
@@ -767,20 +891,6 @@ nav ul li.has-mega:hover .mega-menu {
   color: #444;
 }
 
-.cta-button {
-  background-color: #48A9C5;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #009dc2;
-}
-
 .price-note {
   font-size: 0.95rem;
   color: #888;
@@ -812,44 +922,62 @@ nav ul li.has-mega:hover .mega-menu {
 }
 
 .nav-item {
-  position: relative; /* Anchor the dropdown to the parent */
+  position: relative;
+  /* Anchor the dropdown to the parent */
 }
 
 .dropdown {
-  display: none; /* Hide the dropdown by default */
-  position: absolute; /* Position it relative to the parent */
-  top: 100%; /* Place it directly below the parent */
-  left: 0; /* Align it to the left edge */
-  background: white; /* Set a background color */
-  z-index: 100; /* Ensure it appears above other elements */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
-  padding: 10px; /* Add padding for spacing */
-  border-radius: 8px; /* Optional: Add rounded corners */
+  display: none;
+  /* Hide the dropdown by default */
+  position: absolute;
+  /* Position it relative to the parent */
+  top: 100%;
+  /* Place it directly below the parent */
+  left: 0;
+  /* Align it to the left edge */
+  background: white;
+  /* Set a background color */
+  z-index: 100;
+  /* Ensure it appears above other elements */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Optional: Add a shadow */
+  padding: 10px;
+  /* Add padding for spacing */
+  border-radius: 8px;
+  /* Optional: Add rounded corners */
 }
 
 .nav-item:hover .dropdown {
-  display: block; /* Show the dropdown when hovering over the parent */
+  display: block;
+  /* Show the dropdown when hovering over the parent */
 }
 
 .dropdown ul {
-  list-style: none; /* Remove default list styling */
+  list-style: none;
+  /* Remove default list styling */
   margin: 0;
   padding: 0;
 }
 
 .dropdown li {
-  padding: 8px 12px; /* Add padding for each item */
+  padding: 8px 12px;
+  /* Add padding for each item */
 }
 
 .dropdown li a {
-  text-decoration: none; /* Remove underline from links */
-  color: #333; /* Set link color */
-  display: block; /* Make the link fill the entire list item */
+  text-decoration: none;
+  /* Remove underline from links */
+  color: #333;
+  /* Set link color */
+  display: block;
+  /* Make the link fill the entire list item */
 }
 
 .dropdown li a:hover {
-  background: #f0f0f0; /* Add a hover effect */
-  color: #007ea7; /* Change text color on hover */
+  background: #f0f0f0;
+  /* Add a hover effect */
+  color: #007ea7;
+  /* Change text color on hover */
 }
 
 .dropdown {
@@ -975,9 +1103,12 @@ nav ul li.has-mega:hover .mega-menu {
   width: 48px;
   height: 48px;
   object-fit: cover;
-  border-radius: 50%; /* 👈 Makes the image perfectly round */
-  background-color: #f5f5f5; /* Optional: adds subtle background to support round shape */
-  padding: 4px; /* Optional: space inside the circle */
+  border-radius: 50%;
+  /* 👈 Makes the image perfectly round */
+  background-color: #f5f5f5;
+  /* Optional: adds subtle background to support round shape */
+  padding: 4px;
+  /* Optional: space inside the circle */
 }
 
 .feature-item p {
@@ -1110,7 +1241,7 @@ nav ul li.has-mega:hover .mega-menu {
   line-height: 1.25;
 }
 
-.space-y-4 > * + * {
+.space-y-4>*+* {
   margin-top: 1rem;
 }
 

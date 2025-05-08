@@ -1,3 +1,11 @@
+// nav area collapse and active start
+document.querySelector(".togglebar").addEventListener("click", () => {
+  document.querySelector(".navitems").classList.toggle("active");
+});
+// nav area collapse and active end
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   // Define treatment data for each category
   const treatmentGroups = {

@@ -1,129 +1,17 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
     Baudelaire Skin Clinic
   </title>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&amp;display=swap" rel="stylesheet" />
-  <link as="image" href="images/jaw.jpg" rel="preload" />
-  <link as="image" href="images/lip.jpg" rel="preload" />
-  <link as="image" href="images/eyelid.jpg" rel="preload" />
-  <link as="image" href="images/nose.jpg" rel="preload" />
-  <link as="image" href="images/cheek.jpg" rel="preload" />
   <link rel="stylesheet" href="styles.css">
-  <!-- Add more based on your image set -->
+  <link rel="stylesheet" href="responsive.css">
+
   <style>
-    html,
-    body {
-      overflow-x: hidden;
-      max-width: 100%;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f8fa;
-      color: #333;
-      padding-top: 80px;
-      /* Offset for fixed header */
-    }
-
-    header {
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      padding: 20px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: fixed;
-      /* Make header fixed */
-      top: 0;
-      width: 100%;
-      z-index: 1100;
-      /* Ensure it stays above other content */
-    }
-
-    .logo {
-      font-size: 1.6em;
-      font-weight: bold;
-      color: #00B4D8;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 40px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      position: relative;
-      /* Ensure dropdown aligns relative to the nav item */
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #48A9C5;
-      font-weight: 700;
-      font-size: 1.2em;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #007F7D;
-    }
-
-    .cta-button {
-      background-color: #48A9C5;
-      color: white;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 999px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #009dc2;
-    }
-
-    .mega-menu {
-      position: absolute;
-      /* Instead of fixed */
-      top: 100%;
-      left: 0;
-      background: #fff;
-      padding: 30px 40px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      border-radius: 12px;
-      display: none;
-      /* Hidden by default */
-      z-index: 1000;
-      width: max-content;
-      /* Adjusts to content width */
-      min-width: 900px;
-      /* Ensures a minimum width for the menu */
-    }
-
-    nav ul li:hover .mega-menu,
-    .mega-menu:hover {
-      display: flex;
-    }
-
-    .mega-column {
-      display: flex;
-      flex-direction: column;
-      max-width: 250px;
-      padding-right: 40px;
-    }
-
     .hover-panel {
       max-width: 280px;
       padding: 20px;
@@ -238,22 +126,6 @@
       line-height: 1.7;
       font-weight: 400;
       margin-bottom: 28px;
-    }
-
-    .hero-content .cta-button {
-      background-color: #48A9C5;
-      padding: 14px 28px;
-      border-radius: 999px;
-      font-size: 1em;
-      font-weight: 600;
-      color: white;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      transition: background 0.3s ease;
-    }
-
-    .hero-content .cta-button:hover {
-      background-color: #009dc2;
     }
 
     .services {
@@ -652,16 +524,20 @@
 </head>
 
 <body>
+
   <header>
     <div class="logo">
-      Baudelaire
+      <a href="#">
+        Baudelaire
+      </a>
     </div>
-    <nav>
+
+    <nav class="navitems active">
       <ul>
         <li>
-          <a href="#">
+          <button>
             Treatments
-          </a>
+          </button>
           <div class="mega-menu">
             <div class="mega-column">
               <h4>
@@ -669,43 +545,43 @@
               </h4>
               <ul>
 
-                <li data-desc="Reduces excessive gum show." data-img="gummy.jpg">
+                <li data-desc="Reduces excessive gum show.">
                   Anti-Wrinkle Injections (3 Areas)
                 </li>
-                <li data-desc="Flips the upper lip subtly." data-img="lip.jpg">
+                <li data-desc="Flips the upper lip subtly.">
                   Anti-Wrinkle Injections (3 Areas + Eyelid/Brow Lift)
                 </li>
-                <li data-desc="Lifts eyelids and brows." data-img="eyelid.jpg">
+                <li data-desc="Lifts eyelids and brows.">
                   Eyelid Lift / Brow Lift
                 </li>
-                <li data-desc="Reduces excessive gum show." data-img="gummy.jpg">
+                <li data-desc="Reduces excessive gum show.">
                   Gummy Smile
                 </li>
-                <li data-desc="Smooths smoker's lines." data-img="smoker.jpg">
+                <li data-desc="Smooths smoker's lines.">
                   Smoker's Lines
                 </li>
-                <li data-desc="Flips the upper lip subtly." data-img="lip.jpg">
+                <li data-desc="Flips the upper lip subtly.">
                   Lip Flip
                 </li>
-                <li data-desc="Lifts the nose tip." data-img="nose.jpg">
+                <li data-desc="Lifts the nose tip.">
                   Nose Tip Lift
                 </li>
-                <li data-desc="Smooths bunny lines." data-img="bunny.jpg">
+                <li data-desc="Smooths bunny lines.">
                   Bunny Lines
                 </li>
-                <li data-desc="Smooths dimpled chin." data-img="chin.jpg">
+                <li data-desc="Smooths dimpled chin.">
                   Dimpled Chin
                 </li>
-                <li data-desc="Lifts downturned mouth." data-img="mouth.jpg">
+                <li data-desc="Lifts downturned mouth.">
                   Downturned Mouth
                 </li>
-                <li data-desc="Sculpts and slims the jaw." data-img="jaw.jpg">
+                <li data-desc="Sculpts and slims the jaw.">
                   Jaw Slimming
                 </li>
-                <li data-desc="Lifts and tightens neck." data-img="nefertiti.jpg">
+                <li data-desc="Lifts and tightens neck.">
                   Nefertiti Neck Lift
                 </li>
-                <li data-desc="Treats underarm sweating." data-img="hyperhidrosis.jpg">
+                <li data-desc="Treats underarm sweating.">
                   Hyperhidrosis (Underarm)
                 </li>
               </ul>
@@ -795,9 +671,9 @@
           </div>
         </li>
         <li class="has-mega">
-          <a href="#">
+          <button>
             Conditions
-          </a>
+          </button>
 
           <div class="mega-menu">
             <div class="mega-column">
@@ -854,26 +730,42 @@
           </div>
         </li>
         <li>
-          <a href="#">
+          <a href="about-us.html">
             About Us
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="blog.html">
             Blog
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="login.html">
             Log in
+          </a>
+        </li>
+        <li>
+          <a class="cta-button-inside" href="consultation.html">
+            Start consultation →
           </a>
         </li>
       </ul>
     </nav>
+
     <a class="cta-button" href="consultation.html">
       Start consultation →
     </a>
+
+    <Button class="togglebar">
+      <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 9.07143C0 8.47969 0.549469 8 1.22727 8H25.7727C26.4505 8 27 8.47969 27 9.07143C27 9.66316 26.4505 10.1429 25.7727 10.1429H1.22727C0.549469 10.1429 0 9.66316 0 9.07143Z" fill="black"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 1C2.5 0.408266 3.00401 0 3.68182 0H25.7727C26.4505 0 27 0.408266 27 1C27 1.59173 26.4505 2 25.7727 2H13.5H3.68182C3.00401 2 2.5 1.59173 2.5 1Z" fill="black"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 17C2.5 16.4083 3.00401 16 3.68182 16H25.7727C26.4505 16 27 16.4083 27 17C27 17.5917 26.4505 18 25.7727 18H13.5H3.68182C3.00401 18 2.5 17.5917 2.5 17Z" fill="black"/>
+      </svg>
+    </Button>
+
   </header>
+  
   <nav>
     <ul>
       <li class="nav-item">
@@ -891,6 +783,8 @@
       </li>
     </ul>
   </nav>
+
+
   <section class="hero">
     <div class="hero-content">
       <h1>
@@ -904,6 +798,7 @@
       </a>
     </div>
   </section>
+
   <section class="services">
     <div class="service-card" data-category="skin-texture">
       <h3>
@@ -930,6 +825,7 @@
       </p>
     </div>
   </section>
+
   <section class="service-preview-container">
     <h2 class="section-title">
       Discover Personalised Skin Treatments
@@ -988,6 +884,7 @@
       </div>
     </div>
   </section>
+
   <section class="services" style="margin-top: 80px;">
     <div class="service-card" data-category="refine-sculpt">
       <h3>
@@ -1014,6 +911,7 @@
       </p>
     </div>
   </section>
+
   <section class="service-preview-container">
     <h2 class="section-title">
       Explore Our Signature Pathways
@@ -1144,10 +1042,10 @@
   </section>
 
   <section class="min-h-screen bg-white py-20 px-6 flex flex-col md:flex-row justify-center items-center gap-12">
-    <!-- Cards Column -->
+    
     <div class="flex flex-col gap-6 w-full md:w-1/2 max-w-xl">
 
-      <!-- Card: Why I Created Baudelaire -->
+      
       <div
         class="group p-6 bg-gray-100 rounded-2xl shadow-md hover:bg-indigo-50 transition-all duration-300 cursor-pointer">
         <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-600">Why I Created Baudelaire Clinics</h3>
@@ -1204,6 +1102,7 @@
       </li>
     </ul>
   </section>
+
   <section class="content-section">
     <h2>
       About Us
@@ -1212,9 +1111,11 @@
       We offer a range of skincare treatments designed to help you achieve healthier, more radiant skin.
     </p>
   </section>
+
   <footer>
     © 2025 Baudelaire Skin Clinic. All rights reserved.
   </footer>
+
   <script src="working_script_clean_final.js"></script>
   <script src="script.js"></script>
 </body>

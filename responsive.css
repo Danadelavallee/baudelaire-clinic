@@ -1,0 +1,59 @@
+@media only screen and (min-width: 650px) and (max-width: 1285px) {
+    .mega-menu {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 1027px) {
+    .togglebar {
+        display: block;
+    } 
+
+    header {
+        padding: 15px 25px;
+    }
+
+    .active {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all;
+        transition-duration: 0.4s;
+    }
+
+    .navitems ul {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 100%;
+        left: 0;
+        gap: 20px;
+        width: 100%;
+        z-index: 999;
+        background-color: white;
+        padding: 20px 10px;
+        transition: all;
+        transition-duration: 0.4s;
+    }
+    .cta-button {
+        display: none;
+    }
+    .cta-button-inside {
+        display: inline-block;
+    }
+
+    nav ul li {
+        position: relative;
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 649.60px) {
+    .mega-menu {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+    .togglebar {
+        display: block;
+    }
+}
