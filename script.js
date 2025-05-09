@@ -1,7 +1,15 @@
 // nav area collapse and active start
 document.querySelector(".togglebar").addEventListener("click", () => {
-  document.querySelector(".navitems").classList.toggle("active");
+  const navItems = document.querySelector(".navitems");
+  navItems.classList.toggle("active");
+
+  if (navItems.classList.contains("active")) {
+    document.body.style.overflow = "";
+  } else {
+    document.body.style.overflow = "hidden";
+  }
 });
+
 // nav area collapse and active end
 
 

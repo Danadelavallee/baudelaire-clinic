@@ -7,520 +7,10 @@
   <title>
     Baudelaire Skin Clinic
   </title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="responsive.css">
-
-  <style>
-    .hover-panel {
-      max-width: 280px;
-      padding: 20px;
-      background: #f9fafa;
-      border-left: 1px solid #ddd;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
-      border-radius: 12px;
-    }
-
-    .mega-column h4 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #007ea7;
-      margin-bottom: 14px;
-      border-left: 4px solid #007ea7;
-      padding-left: 10px;
-    }
-
-    .mega-column ul {
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .mega-column ul li {
-      font-size: 14.5px;
-      color: #444;
-      white-space: normal;
-      /* Wrap text properly */
-      word-break: break-word;
-      padding: 6px 0;
-      transition: all 0.3s ease;
-      border-left: 2px solid transparent;
-      padding-left: 10px;
-    }
-
-    .mega-column ul li:hover {
-      color: #007ea7;
-      border-left: 2px solid #007ea7;
-      background: #f4fafd;
-      border-radius: 4px;
-    }
-
-    .hover-panel img {
-      border-radius: 12px;
-      width: 100%;
-      height: auto;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      margin-bottom: 12px;
-    }
-
-    .hover-panel p {
-      font-size: 14px;
-      text-align: center;
-    }
-
-    .hero {
-      background: url('images/Skin-Care-Web-Banner.png') no-repeat center center;
-      background-size: cover;
-      padding: 0 40px;
-      height: 600px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 60%);
-      z-index: 0;
-    }
-
-    .hero-content {
-      max-width: 540px;
-      padding: 24px 28px;
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(18px);
-      border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      animation: fadeInUp 1s ease-out;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-content h1 {
-      font-size: 2.7em;
-      font-weight: 800;
-      color: #007ea7;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-
-    .hero-content p {
-      font-size: 1.05em;
-      color: #444;
-      line-height: 1.7;
-      font-weight: 400;
-      margin-bottom: 28px;
-    }
-
-    .services {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 20px;
-      padding: 0 40px;
-      background-color: #fff;
-      flex-wrap: wrap;
-      width: 100%;
-      max-width: none;
-      margin: 0 auto;
-    }
-
-    .service-card {
-      background-color: #f9f9f9;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-      width: 320px;
-      min-height: 250px;
-      height: 250px;
-      flex: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      background-color: #f0faff;
-    }
-
-    .service-card h3 {
-      margin-top: 0;
-      margin-bottom: 15px;
-      color: #00B4D8;
-      text-align: center;
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-
-    .service-card p {
-      font-size: 1.2em;
-      text-align: center;
-      line-height: 1.6;
-      margin-bottom: 15px;
-      font-weight: bold;
-    }
-
-    .service-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-    }
-
-    .service-card ul li {
-      margin-bottom: 12px;
-      padding-left: 25px;
-      position: relative;
-    }
-
-    .service-card ul li:before {
-      content: '\2022';
-      color: #00B4D8;
-      position: absolute;
-      left: 0;
-      font-size: 1.2em;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    footer {
-      background-color: #222;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-
-    .additional-info {
-      padding: 40px;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .additional-info ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .additional-info ul li {
-      padding: 10px;
-      font-size: 16px;
-    }
-
-    .treatment-section {
-      padding: 40px;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .treatment-section h2 {
-      margin-bottom: 10px;
-    }
-
-    .treatment-section p {
-      margin-bottom: 20px;
-    }
-
-    .treatment-options {
-      display: flex;
-      align-items: center;
-      /* Vertically align both columns */
-      justify-content: center;
-      /* Center the columns horizontally */
-      gap: 130px;
-      /* Add spacing between the columns */
-      margin: 0 auto;
-      /* Center the container horizontally */
-      max-width: 960px;
-      /* Limit the width for a balanced layout */
-      padding: 40px 0;
-      /* Add vertical padding for breathing room */
-    }
-
-    .treatment-list {
-      flex: 1;
-      /* Ensure equal flex growth */
-      max-width: 48%;
-      /* Limit the width to balance the columns */
-    }
-
-    .preview-card.image-preview {
-      flex: 1;
-      max-width: 48%;
-      /* Balance the width with the treatment list */
-      display: flex;
-      flex-direction: column;
-      /* Stack the image and text vertically */
-      align-items: flex-start;
-      /* Bring the image + text block closer to the list */
-    }
-
-    .preview-card.image-preview img {
-      width: 100%;
-      /* Ensure the image scales responsively */
-      max-width: 320px;
-      /* Limit the maximum width */
-      height: auto;
-      /* Maintain aspect ratio */
-      object-fit: cover;
-      /* Crop if necessary while maintaining aspect ratio */
-      border-radius: 12px;
-      /* Keep the rounded corners */
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      /* Add a soft shadow for depth */
-      margin-bottom: 16px;
-      /* Add spacing below the image */
-    }
-
-    .preview-text {
-      font-size: 16px;
-      /* Refined font size for readability */
-      color: #4a6073;
-      /* Muted tone for elegance */
-      text-align: left;
-      /* Align text to the left */
-      max-width: 320px;
-      /* Limit the width for better layout */
-      background: #f9fafa;
-      /* Subtle background for contrast */
-      padding: 14px;
-      /* Add padding for spacing */
-      border-radius: 10px;
-      /* Rounded corners for a polished look */
-    }
-
-    @media (max-width: 768px) {
-      .treatment-options {
-        flex-direction: column;
-        /* Stack the columns vertically */
-        gap: 20px;
-        /* Add spacing between stacked elements */
-      }
-
-      .treatment-list,
-      .preview-card.image-preview {
-        max-width: 100%;
-        /* Full width for stacked layout */
-      }
-    }
-
-    @media (max-width: 480px) {
-      .preview-card.image-preview img {
-        max-width: 100%;
-        /* Ensure images scale properly */
-        height: auto;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .mega-menu {
-        flex-wrap: wrap;
-        /* Allow wrapping on smaller screens */
-        gap: 10px;
-      }
-
-      .mega-column {
-        flex: 1 1 100%;
-        /* Stack columns vertically */
-        max-width: 100%;
-      }
-
-      .hover-panel {
-        flex: 1 1 100%;
-        /* Move hover panel below columns */
-        max-width: 100%;
-        margin-top: 20px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .treatment-options {
-        flex-direction: column;
-        /* Stack the columns vertically */
-        align-items: center;
-        /* Center-align the stacked content */
-      }
-
-      .treatment-list,
-      .preview-card.image-preview {
-        max-width: 100%;
-        /* Allow full width for stacked layout */
-      }
-
-      .preview-card img {
-        width: 90%;
-        /* Reduce image width for smaller screens */
-      }
-    }
-
-    .service-preview-container {
-      text-align: center;
-      margin: 60px auto;
-      /* Adds spacing around the section */
-      padding: 0 20px;
-      /* Adds padding for better responsiveness */
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      /* Elegant serif font */
-      font-size: 36px;
-      /* Larger font size for emphasis */
-      font-weight: bold;
-      color: #1d2b3a;
-      /* Deep navy tone */
-      margin-bottom: 20px;
-      /* Space below the title */
-      letter-spacing: 0.5px;
-      /* Subtle letter-spacing for refinement */
-    }
-
-    .section-subtitle {
-      font-family: 'Lora', serif;
-      /* High-end serif font */
-      font-size: 18px;
-      /* Refined font size */
-      color: #555;
-      /* Muted charcoal tone */
-      margin-bottom: 40px;
-      /* Space below the subtitle */
-      letter-spacing: 0.3px;
-      line-height: 1.6;
-      /* Improves readability */
-    }
-
-    /* Responsive styling for mobile screens */
-    @media (max-width: 768px) {
-      .section-title {
-        font-size: 28px;
-        /* Adjust font size for smaller screens */
-      }
-
-      .section-subtitle {
-        font-size: 16px;
-        /* Adjust font size for smaller screens */
-      }
-    }
-
-    .preview-card img {
-      width: 100%;
-      /* Ensure the image scales responsively */
-      max-width: 320px;
-      /* Limit the maximum width */
-      height: auto;
-      /* Maintain aspect ratio */
-      object-fit: cover;
-      /* Crop if necessary while maintaining aspect ratio */
-      border-radius: 12px;
-      /* Keep the rounded corners */
-      margin-bottom: 16px;
-      /* Add spacing below the image */
-    }
-
-    .treatment-list ul {
-      list-style: none;
-      /* Remove bullet points */
-      text-align: left;
-      /* Align text to the left */
-      margin: 0;
-      /* Remove unnecessary centering */
-      padding: 0;
-      /* Reset padding */
-    }
-
-    .treatment-list li {
-      padding: 12px 0;
-      /* Add vertical spacing between items */
-      font-size: 18px;
-      /* Set a readable font size */
-      color: #333;
-      /* Default text color */
-      cursor: pointer;
-      /* Indicate interactivity */
-      border-bottom: 1px solid #eee;
-      /* Add a subtle divider between items */
-      transition: color 0.3s ease;
-      /* Smooth color transition on hover */
-      text-align: left;
-      /* Align text to the left */
-    }
-
-    .treatment-list li:hover {
-      color: #007ea7;
-      /* Change text color on hover */
-      font-weight: bold;
-      /* Emphasize the hovered item */
-    }
-
-    .treatment-list {
-      display: flex;
-      flex-direction: column;
-      /* Stack the list items vertically */
-      justify-content: center;
-      /* Center the list vertically */
-      align-items: flex-end;
-      /* Pull the list closer to the image */
-    }
-
-    .service-preview {
-      display: flex;
-      justify-content: center;
-      /* Center the entire preview container horizontally */
-    }
-
-    .preview-message {
-      font-size: 1.4rem;
-      /* Large font size for emphasis */
-      color: #555;
-      /* Neutral text color */
-      font-weight: 500;
-      /* Medium weight for readability */
-      text-align: center;
-      /* Center-align the text */
-      padding: 40px 0;
-      /* Add vertical padding for spacing */
-    }
-  </style>
 </head>
 
 <body>
@@ -534,7 +24,7 @@
 
     <nav class="navitems active">
       <ul>
-        <li>
+        <li tabindex="0">
           <button>
             Treatments
           </button>
@@ -670,7 +160,7 @@
             </div>
           </div>
         </li>
-        <li class="has-mega">
+        <li class="has-mega" tabindex="0">
           <button>
             Conditions
           </button>
@@ -758,18 +248,24 @@
 
     <Button class="togglebar">
       <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 9.07143C0 8.47969 0.549469 8 1.22727 8H25.7727C26.4505 8 27 8.47969 27 9.07143C27 9.66316 26.4505 10.1429 25.7727 10.1429H1.22727C0.549469 10.1429 0 9.66316 0 9.07143Z" fill="black"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 1C2.5 0.408266 3.00401 0 3.68182 0H25.7727C26.4505 0 27 0.408266 27 1C27 1.59173 26.4505 2 25.7727 2H13.5H3.68182C3.00401 2 2.5 1.59173 2.5 1Z" fill="black"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 17C2.5 16.4083 3.00401 16 3.68182 16H25.7727C26.4505 16 27 16.4083 27 17C27 17.5917 26.4505 18 25.7727 18H13.5H3.68182C3.00401 18 2.5 17.5917 2.5 17Z" fill="black"/>
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M0 9.07143C0 8.47969 0.549469 8 1.22727 8H25.7727C26.4505 8 27 8.47969 27 9.07143C27 9.66316 26.4505 10.1429 25.7727 10.1429H1.22727C0.549469 10.1429 0 9.66316 0 9.07143Z"
+          fill="black" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M2.5 1C2.5 0.408266 3.00401 0 3.68182 0H25.7727C26.4505 0 27 0.408266 27 1C27 1.59173 26.4505 2 25.7727 2H13.5H3.68182C3.00401 2 2.5 1.59173 2.5 1Z"
+          fill="black" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M2.5 17C2.5 16.4083 3.00401 16 3.68182 16H25.7727C26.4505 16 27 16.4083 27 17C27 17.5917 26.4505 18 25.7727 18H13.5H3.68182C3.00401 18 2.5 17.5917 2.5 17Z"
+          fill="black" />
       </svg>
     </Button>
 
   </header>
-  
-  <nav>
+
+  <nav class="menu-items">
     <ul>
-      <li class="nav-item">
-        <a href="#">Menu Item</a>
+      <li class="nav-item" tabindex="0">
+        <button>Menu Item</button>
         <div class="dropdown">
           <ul>
             <li><a href="#">Submenu Item 1</a></li>
@@ -783,7 +279,6 @@
       </li>
     </ul>
   </nav>
-
 
   <section class="hero">
     <div class="hero-content">
@@ -885,7 +380,7 @@
     </div>
   </section>
 
-  <section class="services" style="margin-top: 80px;">
+  <section class="services">
     <div class="service-card" data-category="refine-sculpt">
       <h3>
         Refine &amp; Sculpt
@@ -967,47 +462,51 @@
   </section>
 
   <section class="how-it-works-wrapper">
-    <div class="how-it-works-left">
-      <h2>How It Works</h2>
-      <p class="how-it-works-subtitle">A seamless journey, personalised every step of the way.</p>
-      <a href="consultation.html" class="cta-button">Start Consultation →</a>
-      <p class="price-note">First month <del>£24.99</del> £2.90</p>
-    </div>
+    <div class="how-it-works-items">
+      <div class="how-it-works-left">
+        <h2>How It Works</h2>
+        <p class="how-it-works-subtitle">A seamless journey, personalised every step of the way.</p>
+        <a href="consultation.html" class="how-it-works-cta-button">Start Consultation →</a>
+        <p class="price-note">First month <del>£24.99</del> £2.90</p>
+      </div>
 
-    <div class="how-it-works-right">
-      <div class="step-block">
-        <img src="/images/Step-1.png" alt="Step 1 Icon" />
-        <div class="step-text">
-          <h4>STEP 01</h4>
-          <h3>Learn</h3>
-          <p>Explore our treatments, techniques, and philosophy. Our site is designed to inform and inspire you
-            confidently.</p>
+      <div class="how-it-works-right">
+        <div class="step-block">
+          <img src="/images/Step-1.png" alt="Step 1 Icon" />
+          <div class="step-text">
+            <h4>STEP 01</h4>
+            <h3>Learn</h3>
+            <p>Explore our treatments, techniques, and philosophy. Our site is designed to inform and inspire you
+              confidently.</p>
+          </div>
         </div>
-      </div>
-      <div class="step-block">
-        <img src="/images/Step-2.png" alt="Step 2 Icon" />
-        <div class="step-text">
-          <h4>STEP 02</h4>
-          <h3>Connect</h3>
-          <p>We'll call before your consultation to understand your goals. It's your time to ask, align, and feel
-            supported.</p>
+        <div class="step-block">
+          <img src="/images/Step-2.png" alt="Step 2 Icon" />
+          <div class="step-text">
+            <h4>STEP 02</h4>
+            <h3>Connect</h3>
+            <p>We'll call before your consultation to understand your goals. It's your time to ask, align, and feel
+              supported.</p>
+          </div>
         </div>
-      </div>
-      <div class="step-block">
-        <img src="/images/Step-3.png" alt="Step 3 Icon" />
-        <div class="step-text">
-          <h4>STEP 03</h4>
-          <h3>Consultation Day</h3>
-          <p>You’ll receive a bespoke plan tailored to your needs. If it feels right, treatment can begin that day.</p>
+        <div class="step-block">
+          <img src="/images/Step-3.png" alt="Step 3 Icon" />
+          <div class="step-text">
+            <h4>STEP 03</h4>
+            <h3>Consultation Day</h3>
+            <p>You’ll receive a bespoke plan tailored to your needs. If it feels right, treatment can begin that day.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="step-block">
-        <img src="/images/Step-4.png" alt="Step 4 Icon" />
-        <div class="step-text">
-          <h4>STEP 04</h4>
-          <h3>Refine</h3>
-          <p>We follow up to ensure everything settles beautifully. Our care continues — because radiance is a journey.
-          </p>
+        <div class="step-block">
+          <img src="/images/Step-4.png" alt="Step 4 Icon" />
+          <div class="step-text">
+            <h4>STEP 04</h4>
+            <h3>Refine</h3>
+            <p>We follow up to ensure everything settles beautifully. Our care continues — because radiance is a
+              journey.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -1024,6 +523,7 @@
           facial mapping, we design your treatment from the inside out — grounded in your skin, your structure, your
           story.</p>
       </div>
+
       <div class="data-features">
         <div class="feature-item">
           <img src="images/Signature Facial Mapping.png" alt="Facial Mapping Icon" />
@@ -1041,15 +541,12 @@
     </div>
   </section>
 
-  <section class="min-h-screen bg-white py-20 px-6 flex flex-col md:flex-row justify-center items-center gap-12">
-    
-    <div class="flex flex-col gap-6 w-full md:w-1/2 max-w-xl">
+  <section class="why-created-baudelaire">
 
-      
-      <div
-        class="group p-6 bg-gray-100 rounded-2xl shadow-md hover:bg-indigo-50 transition-all duration-300 cursor-pointer">
-        <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-600">Why I Created Baudelaire Clinics</h3>
-        <p class="text-gray-600 text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+    <div class="card-area">
+      <div class="card">
+        <h3 class="card-title">Why I Created Baudelaire Clinics</h3>
+        <p class="card-description">
           I founded Baudelaire Clinics out of a deep, personal need to unify fragmented skincare. People were being sent
           to different specialists with no one treating them as a whole. I kept thinking: why isn’t there one place
           where everything comes together—where science and beauty speak the same language?
@@ -1061,10 +558,9 @@
       </div>
 
       <!-- Card: Who Am I? -->
-      <div
-        class="group p-6 bg-gray-100 rounded-2xl shadow-md hover:bg-indigo-50 transition-all duration-300 cursor-pointer">
-        <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-600">Who Am I?</h3>
-        <p class="text-gray-600 text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+      <div class="card">
+        <h3 class="card-title">Who Am I?</h3>
+        <p class="card-description">
           I grew up in Nice, began in pharmacy, and pursued a PhD in photobiology at the University of Bath. After
           clinical dermatology training at the Royal College of Physicians of Ireland and advanced aesthetics in London,
           I brought it all together at Baudelaire Clinics.
@@ -1076,10 +572,10 @@
     </div>
 
     <!-- Image Column -->
-    <div class="w-full md:w-1/2 flex justify-center">
-      <img src="images/bc68f1e5-a731-4e08-8d36-dc3926800990.png" alt="Dr. Dana Beki"
-        class="w-72 h-72 rounded-3xl object-cover shadow-lg border border-gray-200">
+    <div class="card-image">
+      <img src="images/bc68f1e5-a731-4e08-8d36-dc3926800990.png" alt="Dr. Dana Beki">
     </div>
+
   </section>
 
   <section class="additional-info">
