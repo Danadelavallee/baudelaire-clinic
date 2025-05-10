@@ -59,6 +59,25 @@
 }
 
 @media only screen and (min-width: 0px) and (max-width: 649.60px) {
+
+    .hero {
+        background: url('images/Skin-Care-Web-Banner-sm.png') no-repeat center center;
+        background-size: cover;
+        height: calc(100dvh - 250px);
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+        line-height: 1.3;
+        margin-bottom: 10px;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+        line-height: 1.3;
+        margin-bottom: 10px;
+    }
+
     .mega-menu {
         grid-template-columns: repeat(1, 1fr);
         gap: 10px;
