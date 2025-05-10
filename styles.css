@@ -28,6 +28,7 @@ button {
 
 :root {
   --theme: white;
+  --themeText: #00B4D8;;
 }
 
 .active {
@@ -97,8 +98,7 @@ nav ul li button:hover {
   color: #007F7D;
 }
 
-.cta-button,
-.cta-button-inside {
+.cta-button {
   background-color: #48A9C5;
   color: white;
   padding: 12px 24px;
@@ -107,10 +107,7 @@ nav ul li button:hover {
   text-decoration: none;
   transition: background-color 0.3s ease;
   font-size: 16px;
-}
-
-.cta-button-inside {
-  display: none;
+  display: inline-block;
 }
 
 .cta-button:hover {
@@ -160,7 +157,7 @@ nav ul li:focus-within .mega-menu,
   flex-direction: column;
   align-items: start;
   max-width: 250px;
-  max-height: 400px;
+  max-height: 600px;
   overflow: auto;
   padding-right: 40px;
 }
@@ -182,78 +179,7 @@ nav ul li:focus-within .mega-menu,
 }
 
 /* header design end */
-/* menu design start */
-
-.menu-items {
-  padding: 20px 10px;
-}
-
-.nav-item {
-  position: relative;
-  /* Anchor the dropdown to the parent */
-}
-
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  border-radius: 8px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.dropdown ul li {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  max-width: 250px;
-  max-height: 400px;
-  overflow: auto;
-}
-
-nav ul li:hover .dropdown,
-.dropdown:hover {
-  opacity: 100%;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-nav ul li:focus-within .dropdown,
-.dropdown:focus {
-  opacity: 100%;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.dropdown li a {
-  text-decoration: none;
-  /* Remove underline from links */
-  color: #333;
-  /* Set link color */
-  display: inline-block;
-  /* Make the link fill the entire list item */
-}
-
-.dropdown li a:hover {
-  color: #007ea7;
-}
-
-
-.nav-item:hover .dropdown {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* menu design end */
 /* hero design start */
-
-
 .hero {
   background: url('images/Skin-Care-Web-Banner.png') no-repeat center center;
   background-size: cover;
@@ -342,7 +268,8 @@ nav ul li:focus-within .dropdown,
   margin-bottom: 15px;
   color: #00B4D8;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 28px;
+  line-height: 1.4;
   font-weight: bold;
 }
 
@@ -350,8 +277,18 @@ nav ul li:focus-within .dropdown,
   font-size: 1.2em;
   text-align: center;
   line-height: 1.6;
-  margin-bottom: 15px;
   font-weight: bold;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: all;
+}
+
+.service-card:hover p {
+  position: static;
+  opacity: 100%;
+  pointer-events: auto;
+  transition-duration: 0.5s;
 }
 
 .service-card ul {
@@ -559,14 +496,14 @@ nav ul li:focus-within .dropdown,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 20px;
 }
 
 .how-it-works-left h2 {
   font-size: 2.8rem;
   font-weight: 700;
   color: #1d2b3a;
-  margin-bottom: 0;
+  line-height: 1;
   text-align: center;
 }
 
@@ -575,22 +512,6 @@ nav ul li:focus-within .dropdown,
   color: #666;
   margin: 0;
   text-align: center;
-}
-
-.how-it-works-left .how-it-works-cta-button {
-  margin-top: 10px;
-  margin-bottom: 4px;
-  background-color: #48A9C5;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none;
-  text-align: center;
-}
-
-.how-it-works-left .how-it-works-cta-button::after {
-  content: " Book your Consultation";
 }
 
 .price-note {
@@ -709,7 +630,7 @@ nav ul li:focus-within .dropdown,
   width: 60px;
   height: 60px;
   object-fit: cover;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   background-color: #f5f5f5;
 }
 
@@ -730,6 +651,7 @@ nav ul li:focus-within .dropdown,
 
 .why-created-baudelaire {
   display: grid;
+  align-items: start;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   padding: 60px 40px;
@@ -746,6 +668,7 @@ nav ul li:focus-within .dropdown,
   background-color: oklch(96.7% 0.003 264.542);
   border-radius: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .why-created-baudelaire .card .card-title {
@@ -758,6 +681,16 @@ nav ul li:focus-within .dropdown,
   font-size: 16px;
   line-height: 1.5;
   padding-top: 10px;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.why-created-baudelaire .card:hover .card-description {
+  position: static;
+  opacity: 100%;
+  pointer-events: auto;
+  transition-duration: 0.5s;
 }
 
 .card-image {
@@ -772,89 +705,193 @@ nav ul li:focus-within .dropdown,
   border-radius: 14px;
   object-fit: cover;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  height: 300px;
-  width: 300px;
+  /* height: 300px; */
+  width: 100%;
 }
 
 
 /* Why Created Baudelaire design end */
-/* Additional info design start */
 
-.additional-info {
+/* compare area start */
+
+.comparison-table {
+  margin: 40px auto;
+  max-width: 900px;
   background-color: #f7f9fc;
-  padding: 40px 20px;
+  padding: 40px;
   border-radius: 14px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 40px auto;
-  font-family: 'Helvetica Neue', sans-serif;
-  color: #1d2b3a;
 }
 
-.additional-info h2 {
-  font-size: 36px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.5;
-}
-
-.additional-info p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  line-height: 1.6;
-  text-align: center;
-  color: #555;
-}
-
-.additional-info ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 600px;
-}
-
-.additional-info li {
-  background-color: #ffffff;
-  padding: 12px 18px;
-  margin-bottom: 10px;
-  border-left: 4px solid #48a9c5;
-  border-radius: 6px;
-  font-size: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-/* Additional info design end */
-/* About us design start */
-
-.content-section {
-  background-color: #ffffff;
-  padding: 40px 20px;
-  border-radius: 14px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
-  max-width: 800px;
-  margin: 40px auto;
-  font-family: 'Helvetica Neue', sans-serif;
-  color: #1d2b3a;
-  text-align: center;
-}
-
-.content-section h2 {
-  font-size: 36px;
+.comparison-table h2 {
+  font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 20px;
-  line-height: 1.5;
-  color: #1d2b3a;
 }
 
-.content-section p {
+.comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.comparison-table thead th {
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+
+.comparison-table td:nth-child(2),
+.comparison-table td:nth-child(3) {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.cta-button-area {
+  text-align: center;
+  padding-top: 40px;
+}
+
+
+/* compare area end */
+
+.footer-section {
+  background-color: var(--themeText);
+  color: #fff;
+  padding: 40px;
+  font-family: sans-serif;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.footer-left {
+  color: #fff;
+  width: 100%;
+}
+
+.brand {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #fff;
+  opacity: 0.2;
+  margin: 16px 0;
+}
+
+.menu-section {
+  margin-bottom: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
   font-size: 1.1rem;
-  line-height: 1.6;
-  color: #555;
-  max-width: 700px;
-  margin: 0 auto;
+  cursor: pointer;
 }
 
-/* About us design end */
+.dropdown {
+  border-top: 1px solid white;
+  padding: 16px 0;
+  cursor: pointer;
+}
+
+.dropdown-header {
+  display: flex;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 0px;
+  transition: all;
+  transition-duration: 0.5s;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdown-content li a {
+  display: inline-block;
+  padding: 5px 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.dropdown-active .dropdown-content {
+  max-height: 1200px;
+  overflow: visible;
+}
+
+.dropdown .plus {
+  font-size: 1.5rem;
+  transition: all;
+  transition-duration: 0.4s;
+}
+
+.dropdown-active .plus {
+  transform: rotate(45deg);
+}
+
+.footer-right {
+  width: 100%;
+}
+
+.newsletter label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 1.2;
+  display: block;
+}
+
+.newsletter input[type="email"] {
+  padding: 10px 16px;
+  background-color: white;
+  color: black;
+  width: 65%;
+  font-size: 1rem;
+  max-width: 300px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.newsletter button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #00d3ad;
+  border: none;
+  color: #000;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.map {
+  margin-top: 20px;
+  width: 100%;
+}
+
+
 /* Footer design start */
  footer {
   background-color: #222;

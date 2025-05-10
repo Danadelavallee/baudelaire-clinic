@@ -7,6 +7,18 @@
 }
 
 @media only screen and (min-width: 0px) and (max-width: 1027px) {
+    .sm-dis-none {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1027.80px) {
+    .lg-dis-none {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 1027px) {
     .togglebar {
         display: block;
     }
@@ -39,14 +51,6 @@
         transition-duration: 0.4s;
         height: calc(100dvh - 80px);
         overflow: auto;
-    }
-
-    .cta-button {
-        display: none;
-    }
-
-    .cta-button-inside {
-        display: inline-block;
     }
 
     nav ul li {
@@ -96,6 +100,23 @@
     }
 
     .why-created-baudelaire {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .comparison-table {
+        margin: 40px auto;
+        max-width: 900px;
+        padding: 20px;
+    }
+
+    .comparison-table th {
+        text-align: center;
+        padding: 8px;
+    }
+
+    .footer-content {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 20px;

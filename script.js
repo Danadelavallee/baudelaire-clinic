@@ -12,6 +12,13 @@ document.querySelector(".togglebar").addEventListener("click", () => {
 
 // nav area collapse and active end
 
+// footer area dropdown start
+  function toggleSection(element) {
+    element.classList.toggle('dropdown-active');
+  }
+// footer area dropdown end
+
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
