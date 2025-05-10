@@ -864,6 +864,13 @@ hr {
   display: block;
 }
 
+.input-area {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .newsletter input[type="email"] {
   padding: 10px 16px;
   background-color: white;
@@ -877,6 +884,7 @@ hr {
 
 .newsletter button {
   padding: 10px 20px;
+  flex-shrink: 0;
   font-size: 1rem;
   background-color: #00d3ad;
   border: none;
