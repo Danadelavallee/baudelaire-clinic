@@ -61,7 +61,7 @@
 @media only screen and (min-width: 0px) and (max-width: 649.60px) {
 
     .hero {
-        background: url('images/Skin-Care-Web-Banner-sm.png') no-repeat center center;
+        background: url('images/Skin-Care-Web-Banner-sm.png') no-repeat left center;
         background-size: cover;
         height: calc(100dvh - 250px);
     }
@@ -92,6 +92,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    .service-card {
+        min-height: auto;
     }
 
     .service-preview .treatment-list {

@@ -149,13 +149,16 @@ document.addEventListener("DOMContentLoaded", function () {
     item.addEventListener('mouseenter', () => {
       const imgSrc = item.getAttribute('data-img');
       const description = item.getAttribute('data-desc');
+      const price = item.getAttribute('data-price');
 
       const imgEl = document.getElementById('hoverImg');
       const descEl = document.getElementById('preview-desc');
+      const prEl = document.getElementById('preview-price');
 
-      if (imgEl && descEl) {
+      if (imgEl || descEl || price) {
         imgEl.src = `images/${imgSrc}`;
         descEl.textContent = description;
+        prEl.textContent = `Price: ${price}`;
       }
     });
   });
@@ -167,13 +170,16 @@ document.querySelectorAll("li.has-mega:nth-child(2) .mega-menu li").forEach(item
   item.addEventListener("mouseenter", () => {
     const imgSrc = item.getAttribute("data-img");
     const description = item.getAttribute("data-desc");
+    const price = item.getAttribute('data-price');
 
     const imgEl = document.getElementById("hoverImgConditions");
     const descEl = document.getElementById("preview-desc-conditions");
+    const prEl = document.getElementById("preview-price-conditions");
 
-    if (imgEl && descEl) {
+    if (imgEl || descEl || price) {
       imgEl.src = `images/${imgSrc}`;
       descEl.textContent = description;
+      prEl.textContent = `Price: ${price}`;
 
       imgEl.classList.remove("show");
       descEl.classList.remove("show");

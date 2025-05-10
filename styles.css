@@ -236,7 +236,6 @@ nav ul li:focus-within .mega-menu,
   align-items: flex-start;
   gap: 20px;
   padding: 40px;
-  background-color: #fff;
   flex-wrap: wrap;
   width: 100%;
   max-width: none;
@@ -248,13 +247,9 @@ nav ul li:focus-within .mega-menu,
   border-radius: 12px;
   padding: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  width: 320px;
-  min-height: 250px;
-  height: 250px;
-  flex: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  max-width: 350px;
+  width: 100%;
+  min-height: 200px;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -265,10 +260,9 @@ nav ul li:focus-within .mega-menu,
 
 .service-card h3 {
   margin-top: 0;
-  margin-bottom: 15px;
   color: #00B4D8;
   text-align: center;
-  font-size: 28px;
+  font-size: 35px;
   line-height: 1.4;
   font-weight: bold;
 }
@@ -276,9 +270,10 @@ nav ul li:focus-within .mega-menu,
 .service-card p {
   font-size: 1.2em;
   text-align: center;
+  padding-top: 10px;
+  position: absolute;
   line-height: 1.6;
   font-weight: bold;
-  position: absolute;
   opacity: 0;
   pointer-events: none;
   transition: all;
@@ -327,7 +322,6 @@ nav ul li:focus-within .mega-menu,
 /* service design end */
 /* service preview design start */
 .service-preview-container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 60px 20px;
   text-align: center;
@@ -350,6 +344,8 @@ nav ul li:focus-within .mega-menu,
 }
 
 .service-preview {
+  max-width: 1200px;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.9);
   padding: 40px;
   border-radius: 16px;
@@ -398,12 +394,7 @@ nav ul li:focus-within .mega-menu,
 }
 
 .preview-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 20px;
-  width: 50%;
   background: #f9fafa;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -442,7 +433,7 @@ nav ul li:focus-within .mega-menu,
   font-size: 1.2rem;
   color: #333;
   font-family: 'Georgia', serif;
-  line-height: 1.8;
+  line-height: 1.4;
   text-align: center;
   transition: opacity 0.4s ease;
 }
@@ -914,7 +905,8 @@ hr {
 
 .hover-panel {
   height: 100%;
-  width: 280px;
+  width: 320px;
+  max-width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -930,13 +922,10 @@ hr {
   margin-bottom: 12px;
 }
 
-#preview-desc {
-  height: 80px;
-  overflow: hidden;
+#preview-desc, #preview-desc-conditions {
   font-size: 14px;
   line-height: 1.4;
   text-align: center;
-
   display: -webkit-box;
   -webkit-line-clamp: 4;
   line-clamp: 4;
@@ -951,6 +940,10 @@ hr {
   object-fit: cover;
   margin-bottom: 10px;
   display: none;
+}
+
+.preview-price {
+  text-align: center;
 }
 
 .service-cards-container {
