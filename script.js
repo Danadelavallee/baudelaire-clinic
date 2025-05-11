@@ -13,9 +13,9 @@ document.querySelector(".togglebar").addEventListener("click", () => {
 // nav area collapse and active end
 
 // footer area dropdown start
-  function toggleSection(element) {
-    element.classList.toggle('dropdown-active');
-  }
+function toggleSection(element) {
+  element.classList.toggle('dropdown-active');
+}
 // footer area dropdown end
 
 
@@ -107,13 +107,30 @@ document.addEventListener("DOMContentLoaded", function () {
     card.addEventListener("mouseenter", () => {
       const categoryId = card.getAttribute("data-category");
       const group = treatmentGroups[categoryId];
-      const previewSection = document.getElementById(`${categoryId}-preview`);
-      if (!group || !previewSection) return;
+      if (!group) return;
 
-      // Hide all others
-      document.querySelectorAll(".service-preview").forEach((p) => p.style.display = "none");
+      // Detect if we're in mobile or desktop mode
+      const isMobile = card.closest(".mobile-only") !== null;
+      const previewId = isMobile
+        ? `${categoryId}-preview-mobile`
+        : `${categoryId}-preview`;
 
-      // Show this one
+      // Determine the proper container
+      const container = isMobile
+        ? card.closest(".services") // mobile: card + preview wrapped together
+        : card.closest(".service-preview-container"); // desktop: preview is outside .services
+
+      if (!container) return;
+
+      const previewSection = container.querySelector(`#${previewId}`);
+      if (!previewSection) return;
+
+      // Hide all previews within the same container
+      container.querySelectorAll(".service-preview").forEach((p) => {
+        p.style.display = "none";
+      });
+
+      // Show the relevant preview
       previewSection.style.display = "flex";
 
       const ul = previewSection.querySelector("ul");
@@ -143,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+
 
   // Restore Mega Menu Preview Logic
   document.querySelectorAll('.mega-menu li').forEach(item => {

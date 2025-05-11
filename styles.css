@@ -233,7 +233,7 @@ nav ul li:focus-within .mega-menu,
 .services {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: start;
   gap: 20px;
   padding: 40px;
   flex-wrap: wrap;
@@ -249,8 +249,14 @@ nav ul li:focus-within .mega-menu,
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   max-width: 350px;
   width: 100%;
-  min-height: 200px;
   transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.service-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .service-card:hover {
@@ -262,7 +268,7 @@ nav ul li:focus-within .mega-menu,
   margin-top: 0;
   color: #00B4D8;
   text-align: center;
-  font-size: 35px;
+  font-size: 32px;
   line-height: 1.4;
   font-weight: bold;
 }
@@ -899,6 +905,30 @@ hr {
   padding: 20px;
   font-size: 14px;
 }
+
+.socials {
+  text-align: start;
+  margin-top: 20px;
+}
+
+.socials p {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ccc;
+}
+
 
 /* Footer design end */
 
