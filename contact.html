@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Baudelaire Skin Clinic
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                Baudelaire
+            </a>
+        </div>
+
+        <nav class="navitems active">
+            <ul>
+                <li tabindex="0">
+                    <button>
+                        Treatments
+                    </button>
+                    <div class="mega-menu">
+                        <div class="mega-column">
+                            <h4>
+                                Anti-Wrinkle &amp; Sculpting
+                            </h4>
+                            <ul>
+                                <li data-price="$20" data-desc="Reduces excessive gum show.">
+                                    Anti-Wrinkle Injections (3 Areas)
+                                </li>
+                                <li data-price="$30" data-desc="Flips the upper lip subtly.">
+                                    Anti-Wrinkle Injections (3 Areas + Eyelid/Brow Lift)
+                                </li>
+                                <li data-price="$40" data-desc="Lifts eyelids and brows.">
+                                    Eyelid Lift / Brow Lift
+                                </li>
+                                <li data-price="$50" data-desc="Reduces excessive gum show.">
+                                    Gummy Smile
+                                </li>
+                                <li data-price="$60" data-desc="Smooths smoker's lines.">
+                                    Smoker's Lines
+                                </li>
+                                <li data-price="$70" data-desc="Flips the upper lip subtly.">
+                                    Lip Flip
+                                </li>
+                                <li data-price="$80" data-desc="Lifts the nose tip.">
+                                    Nose Tip Lift
+                                </li>
+                                <li data-price="$90" data-desc="Smooths bunny lines.">
+                                    Bunny Lines
+                                </li>
+                                <li data-price="$100" data-desc="Smooths dimpled chin.">
+                                    Dimpled Chin
+                                </li>
+                                <li data-price="$110" data-desc="Lifts downturned mouth.">
+                                    Downturned Mouth
+                                </li>
+                                <li data-price="$10" data-desc="Sculpts and slims the jaw.">
+                                    Jaw Slimming
+                                </li>
+                                <li data-price="$20" data-desc="Lifts and tightens neck.">
+                                    Nefertiti Neck Lift
+                                </li>
+                                <li data-price="$30" data-desc="Treats underarm sweating.">
+                                    Hyperhidrosis (Underarm)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mega-column">
+                            <h4>
+                                Fillers &amp; Boosters
+                            </h4>
+                            <ul>
+                                <li data-price="$40" data-desc="Enhances cheek volume." data-img="cheek.jpg">
+                                    Cheek Enhancement
+                                </li>
+                                <li data-price="$50" data-desc="Enhances chin profile." data-img="chin.jpg">
+                                    Chin Enhancement
+                                </li>
+                                <li data-price="$60" data-desc="Improves jawline definition." data-img="jawline.jpg">
+                                    Jawline Improvement
+                                </li>
+                                <li data-price="$70" data-desc="Enhances weak chin profile." data-img="profile.jpg">
+                                    Profile Enhancement (Weak Chin)
+                                </li>
+                                <li data-price="$80" data-desc="Smooths nasolabial lines." data-img="nasolabial.jpg">
+                                    Nasolabial Lines
+                                </li>
+                                <li data-price="$90" data-desc="Smooths marionette lines." data-img="marionette.jpg">
+                                    Marionette Lines
+                                </li>
+                                <li data-price="$100" data-desc="Volumises the lips naturally." data-img="lipfill.jpg">
+                                    Lip Enhancement / Top-Up
+                                </li>
+                                <li data-price="$110" data-desc="Reduces under-eye hollows." data-img="tear.jpg">
+                                    Tear Trough (Under Eyes)
+                                </li>
+                                <li data-price="$120" data-desc="Non-surgical facelift." data-img="facelift.jpg">
+                                    8-Point Facelift
+                                </li>
+                                <li data-price="$130" data-desc="Non-surgical nose reshaping."
+                                    data-img="rhinoplasty.jpg">
+                                    Non-Surgical Rhinoplasty
+                                </li>
+                                <li data-price="$140" data-desc="Dissolves unwanted filler." data-img="dissolve.jpg">
+                                    Filler Dissolving
+                                </li>
+                                <li data-price="$150" data-desc="Hydrates and rejuvenates skin."
+                                    data-img="profhilo.jpg">
+                                    Profhilo
+                                </li>
+                                <li data-price="$160" data-desc="Hydrates and rejuvenates skin."
+                                    data-img="juvederm.jpg">
+                                    Juvederm Volite
+                                </li>
+                                <li data-price="$170" data-desc="Hydrates and rejuvenates skin."
+                                    data-img="restylane.jpg">
+                                    Restylane
+                                </li>
+                                <li data-price="$280" data-desc="Hydrates and rejuvenates skin." data-img="teosyal.jpg">
+                                    Teosyal
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mega-column">
+                            <h4>
+                                Regenerative &amp; Skin Treatments
+                            </h4>
+                            <ul>
+                                <li data-price="$190" data-desc="Regenerates skin." data-img="polynucleotides.jpg">
+                                    Polynucleotides (Face / Eyes / Neck / Decolletage / Combos)
+                                </li>
+                                <li data-price="$200" data-desc="Stimulates collagen using PRP." data-img="prp.jpg">
+                                    PRP (Face / Scalp / Neck / Combos)
+                                </li>
+                                <li data-price="$210" data-desc="Combines PRP with microneedling."
+                                    data-img="prp_skinpen.jpg">
+                                    PRP + Skinpen
+                                </li>
+                                <li data-price="$220" data-desc="Boosts glow and reduces scars."
+                                    data-img="microneedle.jpg">
+                                    Skinpen Microneedling (Face, Face + Neck)
+                                </li>
+                                <li data-price="$230" data-desc="Gently resurfaces skin tone." data-img="peel.jpg">
+                                    Chemical Peels (Radiant 20/10 &amp; 30)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="hover-panel">
+                            <img alt="Treatment Image" id="hoverImg" src="default.jpg" />
+                            <div class="preview-area">
+                                <div class="preview-text" id="preview-desc">
+                                    <p>
+                                        Hover over a treatment to see details.
+                                    </p>
+                                </div>
+                                <div class="preview-price" id="preview-price"></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="price.html">Price</a>
+                </li>
+                <li class="has-mega" tabindex="0">
+                    <button>
+                        Conditions
+                    </button>
+
+                    <div class="mega-menu">
+                        <div class="mega-column">
+                            <h4>Loss of Definition &amp; Volume</h4>
+                            <ul>
+                                <li data-price="$240" data-desc="Hollowing or volume loss in cheeks or under-eyes."
+                                    data-img="volume-face.jpg">Facial
+                                    hollowing or volume loss</li>
+                                <li data-price="$250" data-desc="Weak chin or recessed lower face structure."
+                                    data-img="chin.jpg">Weak
+                                    or recessed chin
+                                </li>
+                                <li data-price="$260" data-desc="Lack of jawline contour or sagging lower face."
+                                    data-img="jaw.jpg">
+                                    Undefined jawline or
+                                    sagging</li>
+                                <li data-price="$270" data-desc="Thinning lips or asymmetry in volume."
+                                    data-img="lips.jpg">Lip volume
+                                    loss or asymmetry
+                                </li>
+                                <li data-price="$280" data-desc="Gummy or downturned smile aesthetics."
+                                    data-img="smile.jpg">Gummy or
+                                    downturned smile
+                                </li>
+                                <li data-price="$290" data-desc="Bumps or profile issues with nose."
+                                    data-img="nose.jpg">Nose profile
+                                    irregularities</li>
+                            </ul>
+                        </div>
+                        <div class="mega-column">
+                            <h4>Loss of Radiance</h4>
+                            <ul>
+                                <li data-price="$300" data-desc="Early signs of ageing or surface wrinkles."
+                                    data-img="lines.jpg">Fine
+                                    lines and early
+                                    signs of ageing</li>
+                                <li data-price="$310" data-desc="Uneven tone or lack of glow." data-img="tone.jpg">Dull
+                                    or uneven skin
+                                    tone</li>
+                                <li data-price="$320" data-desc="Lack of moisture and skin crepiness."
+                                    data-img="dehydrated.jpg">
+                                    Dehydrated or crepey skin
+                                </li>
+                                <li data-price="$340" data-desc="Darkness or shadowing around the eyes."
+                                    data-img="undereyes.jpg">
+                                    Under-eye darkness or
+                                    hollowness</li>
+                                <li data-price="$350" data-desc="Visible pores and uneven texture."
+                                    data-img="pores.jpg">Texture issues,
+                                    enlarged pores
+                                </li>
+                                <li data-price="$360" data-desc="Pigmentation, sun spots, mild UV damage."
+                                    data-img="sun.jpg">Mild
+                                    pigmentation or sun
+                                    damage</li>
+                            </ul>
+                        </div>
+                        <div class="mega-column">
+                            <h4>Restorative Aesthetics</h4>
+                            <ul>
+                                <li data-price="$370" data-desc="Old or misplaced filler needing correction."
+                                    data-img="correction.jpg">
+                                    Overfilled or
+                                    migrated dermal filler</li>
+                                <li data-price="$380" data-desc="Skin laxity or deep structural wrinkles."
+                                    data-img="laxity.jpg">Deep
+                                    lines, sagging, or
+                                    skin laxity</li>
+                                <li data-price="$390" data-desc="Scarring from acne or trauma." data-img="scars.jpg">
+                                    Acne or trauma
+                                    scarring</li>
+                                <li data-price="$400" data-desc="Signs of advanced ageing and skin damage."
+                                    data-img="ageing.jpg">
+                                    Advanced skin ageing
+                                </li>
+                                <li data-price="$410" data-desc="Weak skin regeneration or poor healing."
+                                    data-img="collagen.jpg">
+                                    Collagen depletion or
+                                    poor skin healing</li>
+                                <li data-price="$420" data-desc="Thinning hair or scalp imbalance." data-img="hair.jpg">
+                                    Hair thinning or
+                                    scalp issues</li>
+                            </ul>
+                        </div>
+                        <div class="hover-panel">
+                            <img alt="preview Image" id="hoverImgConditions" src="default.jpg" />
+                            <div class="preview-area">
+                                <div class="preview-text" id="preview-desc-conditions">
+                                    <p>
+                                        Hover over a treatment to see details.
+                                    </p>
+                                </div>
+                                <div class="preview-price" id="preview-price-conditions"></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="about-us.html">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html">
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a href="model.html">
+                        Model
+                    </a>
+                </li>
+                <li>
+                    <a href="https://partner.pabau.com/Baudelaire-aesthetics-ltd/login">
+                        Log in
+                    </a>
+                </li>
+                <li>
+                    <a class="cta-button lg-dis-none" href="consultation.html">
+                        Start consultation →
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <a class="cta-button sm-dis-none" href="consultation.html">
+            Start consultation →
+        </a>
+
+        <Button class="togglebar">
+            <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M0 9.07143C0 8.47969 0.549469 8 1.22727 8H25.7727C26.4505 8 27 8.47969 27 9.07143C27 9.66316 26.4505 10.1429 25.7727 10.1429H1.22727C0.549469 10.1429 0 9.66316 0 9.07143Z"
+                    fill="black" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M2.5 1C2.5 0.408266 3.00401 0 3.68182 0H25.7727C26.4505 0 27 0.408266 27 1C27 1.59173 26.4505 2 25.7727 2H13.5H3.68182C3.00401 2 2.5 1.59173 2.5 1Z"
+                    fill="black" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M2.5 17C2.5 16.4083 3.00401 16 3.68182 16H25.7727C26.4505 16 27 16.4083 27 17C27 17.5917 26.4505 18 25.7727 18H13.5H3.68182C3.00401 18 2.5 17.5917 2.5 17Z"
+                    fill="black" />
+            </svg>
+        </Button>
+
+    </header>
+
+    <!-- Contact Us HTML -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or would like to get in touch, please use the form below.</p>
+
+            <form action="https://formspree.io/f/mrbqyrqb" method="POST" enctype="multipart/form-data"
+                class="contact-form">
+                <label for="email">Your Email:</label>
+                <input type="email" name="email" id="email" required>
+
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject" id="subject" required>
+
+                <label for="message">Description:</label>
+                <textarea name="message" id="message" rows="5" required></textarea>
+
+                <label for="file">Upload File:</label>
+                <input type="file" name="file" id="file">
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+
+    <div class="footer-section">
+        <div class="footer-content">
+            <!-- Left: Dropdown Menu -->
+            <div class="footer-left">
+                <h1 class="brand">Baudelaire</h1>
+                <!-- Quick Links -->
+                <div class="dropdown dropdown-active" onclick="toggleSection(this)">
+                    <div class="dropdown-header">Quick Links <span class="plus">+</span></div>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Start consultation</a></li>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">Skin treatments</a></li>
+                        <li><a href="#">Clinical Pathways</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown" onclick="toggleSection(this)">
+                    <div class="dropdown-header">Useful Links <span class="plus">+</span></div>
+                    <ul class="dropdown-content">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown" onclick="toggleSection(this)">
+                    <div class="dropdown-header">Contact Us <span class="plus">+</span></div>
+                    <ul class="dropdown-content">
+                        <li><a href="mailto:drdanabeiki@baudelaireclinics.co.uk">Email:
+                                drdanabeiki@baudelaireclinics.co.uk</a></li>
+                        <li><a href="callto:+447548857849">Phone: +447548857849</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right: Newsletter + Map -->
+            <div class="footer-right">
+                <form class="newsletter">
+                    <label for="email">Subscribe to our newsletter</label>
+                    <div class="input-area">
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </form>
+
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2492.308802151387!2d-2.366292384084873!3d51.382856979613315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718119a385bb01%3A0xa7892cb5fcf6e2f4!2s14%20Queen%20Square%2C%20Bath%20BA1%202HN%2C%20UK!5e0!3m2!1sen!2suk!4v1715358471793!5m2!1sen!2suk"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="socials">
+                    <p>Follow us on our socials</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        © 2025 Baudelaire Skin Clinic. All rights reserved.
+    </footer>
+
+    <script src="working_script_clean_final.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

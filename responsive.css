@@ -6,13 +6,13 @@
     }
 }
 
-@media only screen and (min-width: 0px) and (max-width: 1027px) {
+@media only screen and (min-width: 0px) and (max-width: 1320px) {
     .sm-dis-none {
         display: none;
     }
 }
 
-@media only screen and (min-width: 1027.80px) {
+@media only screen and (min-width: 1319.80px) {
     .lg-dis-none {
         display: none;
     }
@@ -30,7 +30,7 @@
     }
 }
 
-@media only screen and (min-width: 0px) and (max-width: 1027px) {
+@media only screen and (min-width: 0px) and (max-width: 1319px) {
     .togglebar {
         display: block;
     }

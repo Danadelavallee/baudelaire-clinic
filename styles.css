@@ -1,3 +1,5 @@
+@import url('/contact.css');
+
 * {
   padding: 0;
   margin: 0;
@@ -15,6 +17,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 
 table,
 td,
@@ -333,6 +336,12 @@ nav ul li:focus-within .mega-menu,
   text-align: center;
 }
 
+.section-area {
+  margin: 0 auto;
+  padding: 60px 20px 0px 20px;
+  text-align: center;
+}
+
 
 .section-title {
   font-size: 36px;
@@ -347,6 +356,8 @@ nav ul li:focus-within .mega-menu,
   padding: 20px 0;
   letter-spacing: 0.3px;
   line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .service-preview {
@@ -691,6 +702,8 @@ nav ul li:focus-within .mega-menu,
 }
 
 .card-image {
+  max-width: 400px;
+  margin: 0 auto;
   width: 100%;
   display: flex;
   align-items: center;
@@ -757,6 +770,56 @@ nav ul li:focus-within .mega-menu,
 
 
 /* compare area end */
+/* model area start */
+
+.model-area {
+  background-color: #f0f8fa;
+  padding-bottom: 40px;
+}
+
+.model-items {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.model-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.model-content {
+  max-width: 600px;
+}
+
+.model-content h2 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.model-content ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.model-content ul li {
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+}
+
+.model-content p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+/* model area end */
 
 .footer-section {
   background-color: var(--themeText);
