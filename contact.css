@@ -62,3 +62,60 @@
 .contact-form button:hover {
   background-color: #009dc2;
 }
+
+/* Modal design start */
+
+/* Modal Popup Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  max-height: 300px;
+  height: 100%;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal-content h3 {
+  font-size: 40px;
+}
+
+.modal-content p {
+  font-size: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #000;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+
+/* Modal design end */

@@ -163,49 +163,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // Restore Mega Menu Preview Logic
-  document.querySelectorAll('.mega-menu li').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      const imgSrc = item.getAttribute('data-img');
-      const description = item.getAttribute('data-desc');
-      const price = item.getAttribute('data-price');
+  document.querySelectorAll('.mega-menu').forEach(menu => {
+    menu.querySelectorAll('li').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const imgSrc = item.getAttribute('data-img');
+        const description = item.getAttribute('data-desc');
+        const price = item.getAttribute('data-price');
 
-      const imgEl = document.getElementById('hoverImg');
-      const descEl = document.getElementById('preview-desc');
-      const prEl = document.getElementById('preview-price');
+        // Determine which hover panel to use
+        const hoverPanel = menu.querySelector('.hover-panel');
+        const imgEl = hoverPanel.querySelector('img');
+        const descEl = hoverPanel.querySelector('.preview-text');
+        const prEl = hoverPanel.querySelector('.preview-price');
 
-      if (imgEl || descEl || price) {
-        imgEl.src = `images/${imgSrc}`;
-        descEl.textContent = description;
-        prEl.textContent = `Price: ${price}`;
-      }
+        if (imgEl && descEl && prEl) {
+          if (imgSrc) imgEl.src = `images/${imgSrc}`;
+          if (description) descEl.textContent = description;
+          if (price) prEl.textContent = `Price: ${price}`;
+        }
+      });
     });
   });
-});
 
-
-// Mega Menu Hover Logic for CONDITIONS menu
-document.querySelectorAll("li.has-mega:nth-child(2) .mega-menu li").forEach(item => {
-  item.addEventListener("mouseenter", () => {
-    const imgSrc = item.getAttribute("data-img");
-    const description = item.getAttribute("data-desc");
-    const price = item.getAttribute('data-price');
-
-    const imgEl = document.getElementById("hoverImgConditions");
-    const descEl = document.getElementById("preview-desc-conditions");
-    const prEl = document.getElementById("preview-price-conditions");
-
-    if (imgEl || descEl || price) {
-      imgEl.src = `images/${imgSrc}`;
-      descEl.textContent = description;
-      prEl.textContent = `Price: ${price}`;
-
-      imgEl.classList.remove("show");
-      descEl.classList.remove("show");
-
-      setTimeout(() => {
-        imgEl.classList.add("show");
-        descEl.classList.add("show");
-      }, 10);
-    }
-  });
 });
