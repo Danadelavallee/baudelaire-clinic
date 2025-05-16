@@ -817,9 +817,32 @@ nav ul li:focus-within .mega-menu,
   padding: 0 15px;
 }
 
+.sub-accordion-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .sub-accordion-content p {
   padding: 10px 0;
 }
+
+.sub-accordion-content a {
+  background-color: #48A9C5;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.sub-accordion-content a:hover {
+  background-color: #009dc2;
+}
+
 
 /* price section end */
 
