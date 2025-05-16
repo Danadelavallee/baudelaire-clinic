@@ -1,27 +1,24 @@
-// nav area collapse and active start
-document.querySelector(".togglebar").addEventListener("click", () => {
-  const navItems = document.querySelector(".navitems");
-  navItems.classList.toggle("active");
-
-  if (navItems.classList.contains("active")) {
-    document.body.style.overflow = "";
-  } else {
-    document.body.style.overflow = "hidden";
-  }
-});
-
-// nav area collapse and active end
-
-// footer area dropdown start
-function toggleSection(element) {
-  element.classList.toggle('dropdown-active');
-}
-// footer area dropdown end
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
+  // nav area collapse and active start
+  document.querySelector(".togglebar").addEventListener("click", () => {
+    const navItems = document.querySelector(".navitems");
+    navItems.classList.toggle("active");
+
+    if (navItems.classList.contains("active")) {
+      document.body.style.overflow = "";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+  });
+
+  // nav area collapse and active end
+
+  // footer area dropdown start
+  function toggleSection(element) {
+    element.classList.toggle('dropdown-active');
+  }
+  // footer area dropdown end
+
   // Define treatment data for each category
   const treatmentGroups = {
     "skin-texture": [
@@ -182,6 +179,53 @@ document.addEventListener("DOMContentLoaded", function () {
           if (price) prEl.textContent = `Price: ${price}`;
         }
       });
+    });
+  });
+
+
+  const accordionHeaders = document.querySelectorAll(".accordion-header");
+  const subAccordionHeaders = document.querySelectorAll(".sub-accordion-header");
+
+  accordionHeaders.forEach(header => {
+    header.addEventListener("click", () => {
+      const currentContent = header.nextElementSibling;
+      const currentArrow = header.querySelector(".arrow");
+
+      document.querySelectorAll(".accordion-content").forEach(content => {
+        if (content !== currentContent) {
+          content.style.maxHeight = null;
+          content.previousElementSibling.querySelector(".arrow").classList.remove("rotate");
+        }
+      });
+
+      if (currentContent.style.maxHeight) {
+        currentContent.style.maxHeight = null;
+        currentArrow.classList.remove("rotate");
+      } else {
+        currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+        currentArrow.classList.add("rotate");
+      }
+    });
+  });
+
+  subAccordionHeaders.forEach(subHeader => {
+    subHeader.addEventListener("click", () => {
+      const subContent = subHeader.nextElementSibling;
+      const subArrow = subHeader.querySelector(".arrow");
+
+      if (subContent.style.maxHeight) {
+        subContent.style.maxHeight = null;
+        subArrow.classList.remove("rotate");
+      } else {
+        subContent.style.maxHeight = subContent.scrollHeight + "px";
+        subArrow.classList.add("rotate");
+      }
+
+      // 🔁 Recalculate parent accordion's height dynamically
+      const parentAccordionContent = subHeader.closest(".accordion-content");
+      setTimeout(() => {
+        parentAccordionContent.style.maxHeight = parentAccordionContent.scrollHeight + "px";
+      }, 310); // after sub transition ends (300ms)
     });
   });
 

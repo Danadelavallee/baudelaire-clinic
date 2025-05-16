@@ -36,7 +36,8 @@ button {
 
 :root {
   --theme: white;
-  --themeText: #00B4D8;;
+  --themeText: #00B4D8;
+  ;
 }
 
 .active {
@@ -59,7 +60,7 @@ body {
 header {
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  padding: 20px 40px;
+  padding: 5px 40px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -71,10 +72,8 @@ header {
   z-index: 998;
 }
 
-.logo a {
-  font-size: 1.6em;
-  font-weight: bold;
-  color: #00B4D8;
+.logo a img {
+  max-width: 80px;
 }
 
 nav ul {
@@ -358,6 +357,7 @@ nav ul li:focus-within .mega-menu,
   font-weight: bold;
   color: #1d2b3a;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .section-subtitle {
@@ -368,6 +368,7 @@ nav ul li:focus-within .mega-menu,
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .service-preview {
@@ -732,6 +733,96 @@ nav ul li:focus-within .mega-menu,
 
 /* Why Created Baudelaire design end */
 
+/* price section start */
+
+.price-area {
+  gap: 20px;
+  padding: 40px;
+  width: 100%;
+  background-color: #f0f8fa;
+}
+
+.price-details {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.accordion {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 6px;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.accordion-item {
+  border-top: 1px solid #ccc;
+}
+
+.accordion-header {
+  background-color: #f9f9f9;
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.arrow.rotate {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: #fafafa;
+}
+
+.accordion-inner-content {
+  padding: 15px;
+  border-top: 1px solid #ccc;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.accordion-inner-content .sub-accordion-title {
+  padding: 10px 0;
+  font-weight: 600;
+}
+
+.sub-accordion-header {
+  padding: 10px 15px;
+  background: #f3f3f3;
+  border: 1px solid #ebebeb;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #fff;
+  padding: 0 15px;
+}
+
+.sub-accordion-content p {
+  padding: 10px 0;
+}
+
+/* price section end */
+
 /* compare area start */
 
 .comparison-table {
@@ -971,7 +1062,7 @@ hr {
 
 
 /* Footer design start */
- footer {
+footer {
   background-color: #222;
   color: #fff;
   text-align: center;
@@ -1025,7 +1116,8 @@ hr {
   margin-bottom: 12px;
 }
 
-#preview-desc, #preview-desc-conditions {
+#preview-desc,
+#preview-desc-conditions {
   font-size: 14px;
   line-height: 1.4;
   text-align: center;

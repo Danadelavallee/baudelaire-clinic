@@ -4,6 +4,10 @@
         gap: 10px;
         overflow: auto;
     }
+    .accordion-inner-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media only screen and (min-width: 0px) and (max-width: 1320px) {
@@ -173,6 +177,11 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 20px;
+    }
+
+    .accordion-inner-content {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .why-created-baudelaire {
