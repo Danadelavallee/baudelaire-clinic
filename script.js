@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
   // nav area collapse and active start
-  document.querySelector(".togglebar").addEventListener("click", () => {
-    const navItems = document.querySelector(".navitems");
+
+  const navItems = document.querySelector(".navitems");
+  const allNavItem = document.querySelectorAll(".navItem");
+  const toggleButton = document.querySelector(".togglebar");
+
+  const navAreaToggle = ()=> {
     navItems.classList.toggle("active");
 
     if (navItems.classList.contains("active")) {
@@ -9,7 +15,18 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       document.body.style.overflow = "hidden";
     }
+  }
+
+  toggleButton.addEventListener("click", () => {
+    navAreaToggle();
   });
+
+
+  allNavItem.forEach(navItem => {
+    navItem.addEventListener('click', ()=> {
+      navAreaToggle();
+    })
+  })
 
   // nav area collapse and active end
 

@@ -789,8 +789,6 @@ nav ul li:focus-within .mega-menu,
 .accordion-inner-content {
   padding: 15px;
   border-top: 1px solid #ccc;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
 }
 
 .accordion-inner-content .sub-accordion-title {
